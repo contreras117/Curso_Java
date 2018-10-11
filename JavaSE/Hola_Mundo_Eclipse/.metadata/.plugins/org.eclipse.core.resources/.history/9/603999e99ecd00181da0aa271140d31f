@@ -1,0 +1,23 @@
+package com.contreras.daniel.holamundo;
+
+public class HolaMundo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Hola Mundo");
+		
+		//Tipos de datos enteros
+		byte edad = 127;
+		short year = 32767;
+		int idUser = 10432;
+		long idTwitter = 3458938750832L;
+		
+		//Punto flotante
+		//Por default los valores de punto flotante son tomados como
+		//double por el compilador, por lo que hay que colocar una "f"
+		//despues del valor para indicar que es float.
+		float diametro = 34.25f;
+		double precion = 12345.234532534534523;
+	}
+
+}

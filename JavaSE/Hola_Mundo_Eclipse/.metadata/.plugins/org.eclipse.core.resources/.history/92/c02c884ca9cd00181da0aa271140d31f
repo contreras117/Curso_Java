@@ -1,0 +1,69 @@
+package com.contreras.daniel.holamundo;
+
+//Upper camel case: para nombres de clases.
+public class HolaMundo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Hello world");
+		
+		
+		//Tipos de datos primitivos:
+		//Los tipos de datos primitivos comienzan con minuscula.
+		//Existem de 4 tipos: Enteros (byte,short, int, long),
+		//De punto flotante (float y double),
+		//de texto: char,
+		// y logicos (boolean)
+		
+		//Tipos de datos enteros
+		byte age = 127;
+		short year = 32767;
+		int idUser = 10432;
+		long idTwitter = 3458938750832L;
+	
+		int i = 129;
+		byte b = (byte) i;
+		System.out.println(b);
+		
+		//Punto flotante
+		//Por default los valores de punto flotante son tomados como
+		//double por el compilador, por lo que hay que colocar una "f"
+		//despues del valor para indicar que es float.
+		float diameter = 34.25f;
+		double price = 12345.234532534534523;
+		
+		//Testo
+		char gender = 'F';
+		
+		//Logico
+		boolean isVisible = true;
+		
+		// Nombres variables
+		int variable = 1;
+		int Variable = 2;
+		int _variable =3;
+		int $variable = 4;
+		int variable1 = 5;
+		//int 1variable = 6;
+		
+		//Constantes
+		int VALUE = 0;
+		int MAX_VALUE = 4;
+		
+		//Lower camel case: para metodos y declaracion de variables.
+		int minValor = 4;
+		
+		
+		//Arrays
+		//Formas de declaraiones
+		int[] numbers;
+		int numbers2[];
+		
+		//Iniciacion del array con su capacidad.
+		numbers = new int[5];
+		int numbers3[][] = new int[4][6];
+		
+		
+	}
+
+}
