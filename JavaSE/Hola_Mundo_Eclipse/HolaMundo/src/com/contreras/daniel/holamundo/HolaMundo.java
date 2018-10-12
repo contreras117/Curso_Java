@@ -70,6 +70,25 @@ public class HolaMundo {
 		char [][] days = {{'M','T','W'},{'T','F','S','S'}};
 		
 		
+		//Operadores decremento e incremento ++ --
+		i = 3;
+		System.out.println(i++); //Se imprime 3 por que primero se lee la variable y luego se incrementa.
+		System.out.println(++i); //Se imprime 5 por que la linea anterior incremento su valor a 4, aunque no lo imprimio.
+		//Cuando el operdor de incremento o decremento va antes de la variable,
+		//primero se raliza el incremento y luego se lee el valor de la variable.
+		//Por el contrario si el operador va despues de la variable, primer ose lee
+		//el valor de la variable y luego se lee el valor.
+		
+		
+		int p = 4;
+		int q = 5;
+		boolean n = (p < q)? true: false;
+		boolean m = p < q;
+		System.out.println(n);
+		System.out.println(m);
+			
+				
+				
 	}
 
 }
