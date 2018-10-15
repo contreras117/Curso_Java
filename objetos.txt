@@ -1,0 +1,11 @@
+Los objetos pueden ser tanto fisicos como conceptuales.
+
+Un objeto debe tener atributos para ser ub objeto (nombre, forma, tamano, estado, etc)
+
+Los nombres de los objetos asi como sus atributos deben ser sustantivos.
+
+Los objetos deben realizar acciones. Los nombres de las acciones deben ser un verbo o un verbo mas un sustantivo.
+
+Los atributos y acciones de ub objeto se deben determinar en base al contexto en el que se usara el objeto.
+Por ejemplo en un contexto de ventas los atributos y acciones pueden ser diferentes a los que se 
+usarian en otro contexto.

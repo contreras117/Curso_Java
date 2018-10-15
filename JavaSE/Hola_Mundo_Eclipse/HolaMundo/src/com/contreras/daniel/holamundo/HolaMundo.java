@@ -86,7 +86,25 @@ public class HolaMundo {
 		boolean m = p < q;
 		System.out.println(n);
 		System.out.println(m);
-			
+
+
+		//Ciclo foreach para recorrer arrays
+		numbers2 = new int[10];
+		for (int index : numbers2){
+			System.out.println(index)
+		}
+
+		
+		//La palabra reservada continue permite terminar la ejecucion de la actual iteracion de un ciclo. Las lineas despues de la palabra
+		//no se ejecutan y la ejecucion prosigue en la siguiente iteracion.
+		//Codigo para imprimir los numeros impares del 1 al 10
+		for (i = 1 ; i < 10 ; i++){
+			if(i%2 == 0){
+				continue;
+			}
+			System.out.println("El numero " + i + "es impar");
+		}
+ 			
 				
 				
 	}
