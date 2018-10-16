@@ -26,6 +26,19 @@ public class Chapter
     private byte seasonNumber;
     
     /**
+     * @param title
+     * @param year
+     * @param duration
+     */
+    public Chapter(String title, short year, int duration)
+    {
+        super();
+        this.title = title;
+        this.year = year;
+        this.duration = duration;
+    }
+
+    /**
      * @return the id
      */
     public int getId()

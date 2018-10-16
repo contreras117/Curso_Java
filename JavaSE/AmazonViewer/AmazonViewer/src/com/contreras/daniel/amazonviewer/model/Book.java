@@ -28,6 +28,21 @@ public class Book
     private int timeRead;
     
     /**
+     * @param title
+     * @param editionDate
+     * @param editiorial
+     * @param isbn
+     */
+    public Book(String title, Date editionDate, String editiorial, String isbn)
+    {
+        super();
+        this.title = title;
+        this.editionDate = editionDate;
+        this.editiorial = editiorial;
+        this.isbn = isbn;
+    }
+
+    /**
      * @return the id
      */
     public int getId()

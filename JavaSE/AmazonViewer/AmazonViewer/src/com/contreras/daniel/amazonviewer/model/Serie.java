@@ -26,6 +26,20 @@ public class Serie
     private int timeViewed;
     private int seasonQuantity;
     
+    /**
+     * @param title
+     * @param genre
+     * @param duration
+     */
+    public Serie(String title, String genre, int duration)
+    {
+        super();
+        this.title = title;
+        this.genre = genre;
+        this.duration = duration;
+    }
+
+
     private Chapter[] chapters;
     
     /**

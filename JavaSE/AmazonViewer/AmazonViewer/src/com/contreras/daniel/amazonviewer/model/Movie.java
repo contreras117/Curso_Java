@@ -16,7 +16,7 @@ package com.contreras.daniel.amazonviewer.model;
  */
 public class Movie
 {
-    private int id;
+    int id;
     private String title;
     private short year;
     private String genre;
@@ -25,6 +25,36 @@ public class Movie
     private boolean viewed;
     private int timeViewed;
     
+    /**
+     * @param title
+     * @param year
+     * @param genre
+     */
+    public Movie(String title, short year, String genre)
+    {
+        super();
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+    }
+
+    /**
+     * @param title
+     * @param year
+     * @param genre
+     * @param duration
+     * @param director
+     */
+    public Movie(String title, short year, String genre, int duration, String director)
+    {
+        super();
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+        this.duration = duration;
+        this.director = director;
+    }
+
     /**
      * @return the id
      */
@@ -153,7 +183,11 @@ public class Movie
         this.timeViewed = timeViewed;
     }
     
-    
+    public void showData() {
+        System.out.println("Title: " + title);
+        System.out.println("Genre: " + genre);
+        System.out.println("Year: " + year);
+    }
     
     
 }

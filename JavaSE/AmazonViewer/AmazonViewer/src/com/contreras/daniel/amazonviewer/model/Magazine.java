@@ -25,6 +25,19 @@ public class Magazine
     private String[] authors;
     
     /**
+     * @param title
+     * @param editionDate
+     * @param editiorial
+     */
+    public Magazine(String title, Date editionDate, String editiorial)
+    {
+        super();
+        this.title = title;
+        this.editionDate = editionDate;
+        this.editiorial = editiorial;
+    }
+
+    /**
      * @return the id
      */
     public int getId()

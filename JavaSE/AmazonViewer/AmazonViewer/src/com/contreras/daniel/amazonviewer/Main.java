@@ -1,6 +1,7 @@
 
 package com.contreras.daniel.amazonviewer;
 
+import com.contreras.daniel.amazonviewer.model.Movie;
 import java.util.Date;
 
 public class Main {
@@ -8,6 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		showMenu();
+		//Movie movie = new Movie("Gone Girl", (short)2014, "thriller");
 
 	}
 
