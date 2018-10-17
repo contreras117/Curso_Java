@@ -1,16 +1,18 @@
 
 package com.contreras.daniel.amazonviewer;
 
-import com.contreras.daniel.amazonviewer.model.Movie;
 import java.util.Date;
+
+import com.contreras.daniel.amazonviewer.model.Movie;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		showMenu();
-		//Movie movie = new Movie("Gone Girl", (short)2014, "thriller");
-
+		
+		Movie movie = new Movie("A star is born", "drama", 140, "Bradley Cooper", (short)2018);
+		movie.getTitle();
 	}
 
 	private static void showMenu() {

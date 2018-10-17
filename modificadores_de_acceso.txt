@@ -1,0 +1,8 @@
+Existen 4 diferentes modificadores de acceso en java:
+
+1. public -> el elemento es accesible desde la misma clase o desde cualquier otra.
+2. protected -> el elemento solo es accesible desde la misma clase, desde clases hijas mediante herencia,
+    o desde clases que esten en el mismo package.
+3. default -> si no se especifica un modificador de acceso, se tomara el default, que solo permite acceder
+    al elelemento desde la misma clase o desde clases que esten en el mismo package.
+4. -> private -> el elemento solo es accesible desde la misma clase.

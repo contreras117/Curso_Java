@@ -1,0 +1,9 @@
+Todos los metodos definidos en la clase con el metodo main deben ser static debido a que un metodo
+static no puede acceder a un metodo no static, y debido a que el metodo main que ejecuta toto el programa
+es static, toodos los objetos dentro de esta clase seran static, ya que no habra instancias de esta clase.
+
+Los metodos y atributos static se cargan en memoria desde que se carga la clase, no cuando se realiza una
+instancia de ella.
+
+Los atributos static residen en la clase y no en las instancias de ella, por lo que si una instancia modifica
+el valor de uno de estos atributos, todas las demas instancias accederan al nuevo valor modificado.
