@@ -3,6 +3,9 @@ package com.contreras.daniel.amazonviewer;
 
 import java.util.Date;
 
+import com.contreras.daniel.amazonviewer.model.Book;
+import com.contreras.daniel.amazonviewer.model.Chapter;
+import com.contreras.daniel.amazonviewer.model.Magazine;
 import com.contreras.daniel.amazonviewer.model.Movie;
 
 public class Main {
@@ -12,7 +15,19 @@ public class Main {
 		showMenu();
 		
 		Movie movie = new Movie("A star is born", "drama", 140, "Bradley Cooper", (short)2018);
-		movie.getTitle();
+		System.out.println(movie);
+		
+		Chapter chapter = new Chapter("Pilot","algo", 54,"Alguien",(short)2004,(byte)1);
+		chapter.printId();
+		System.out.println(chapter);
+		
+		Book book = new Book("EGM",new Date(), "sci-fi", "Omega", "231asgfasd132");
+		System.out.println(book);
+		
+		Magazine magazine = new Magazine("EGM",new Date(), "sci-fi", "Televisa");
+		System.out.println(magazine);
+		
+		
 	}
 
 	private static void showMenu() {

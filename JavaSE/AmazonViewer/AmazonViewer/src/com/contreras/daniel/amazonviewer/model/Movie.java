@@ -25,6 +25,7 @@ public class Movie extends Film
 		super(title, genre, duration);
 		setYear(year);
 		this.director = director;
+		this.id = (int)(Math.random() * 100);
 	}
 
 	/**
@@ -51,11 +52,16 @@ public class Movie extends Film
         this.director = director;
     }
     
-    public void showData() {
-        System.out.println("Title: " + getTitle());
-        System.out.println("Genre: " + getGenre());
-        System.out.println("Year: " + getYear());
-    }
+   @Override
+   public String toString() {
+	   return "Title: " + getTitle() +
+			   "\nGenre: " + getGenre() +
+			   "\nYear: " + getYear() +
+			   "\nDirector: " + getDirector() +
+			   "\nDuration: " + getDuration();
+   }
+    
+    
     
     
 }

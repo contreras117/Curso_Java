@@ -16,7 +16,7 @@ package com.contreras.daniel.amazonviewer.model;
  * @author dcontrer
  *
  */
-public class Serie
+public class Serie extends Film
 {
     private int id;
     private String creator;
@@ -25,8 +25,10 @@ public class Serie
     
     
     
-    public Serie(String creator, int seasonQuantity) {
-		super();
+    
+    
+	public Serie(String title, String genre, int duration, String creator, int seasonQuantity) {
+		super(title, genre, duration);
 		this.creator = creator;
 		this.seasonQuantity = seasonQuantity;
 	}
@@ -89,6 +91,15 @@ public class Serie
     public void setChapters(Chapter[] chapters)
     {
         this.chapters = chapters;
+    }
+    
+    @Override
+    public String toString() {
+ 	   return "Title: " + getTitle() +
+ 			   "\nGenre: " + getGenre() +
+ 			   "\nYear: " + getYear() +
+ 			   "\nDirector: " + creator +
+ 			   "\nDuration: " + getDuration();
     }
     
 }

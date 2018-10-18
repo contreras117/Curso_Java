@@ -21,20 +21,18 @@ public class Chapter extends Movie
     private byte seasonNumber;
     
     
-    
+    //Chapter no debe tener genero
     public Chapter(String title, String genre, int duration, String director, short year, byte seasonNumber) {
 		super(title, genre, duration, director, year);
 		this.seasonNumber = seasonNumber;
+		this.id = (int)(Math.random() * 100);
 	}
 
-	/**
-     * @return the id
-     */
-    public int getId()
-    {
-        return id;
-    }
     
+    @Override
+    public int getId() {
+    	return this.getId();
+    }
     /**
      * @return the seasonNumber
      */
@@ -50,5 +48,11 @@ public class Chapter extends Movie
     {
         this.seasonNumber = seasonNumber;
     }
+    
+    public void printId() {
+    	System.out.println(super.getId());
+    	System.out.println(this.id);
+    }
+        
 
 }
