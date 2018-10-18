@@ -3,6 +3,7 @@ package com.contreras.daniel.amazonviewer.model;
 import java.util.Date;
 
 public class Publication {
+    private int id;
     private String title;
     private Date editionDate;
     private String genre;
@@ -19,7 +20,12 @@ public class Publication {
 		this.editiorial = editiorial;
 	}
 	
-	public String getTitle() {
+	public int getId()
+    {
+        return id;
+    }
+
+    public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {

@@ -1,0 +1,7 @@
+Las interfaces solo pueden contener constantes y las definiciones de metodo sin codigo. La funcionalidad (el bloque de codigo) se
+definira en las clases que implementen la interfaz.
+
+En una interfaz solo se puede usar el modificador de accesso default.
+
+Cuando detectamos metodos que pueden ser incluidos en entidades de diferentes familias, se trata de
+una interfaz, a diferencia de la herencia que es dentro de la misma familia.

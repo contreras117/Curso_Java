@@ -2,6 +2,7 @@ package com.contreras.daniel.amazonviewer.model;
 
 public class Film {
 
+    private int id;
 	private String title;
 	private short year;
 	private String genre;
@@ -16,7 +17,12 @@ public class Film {
 		this.duration = duration;
 	}
 	
-	public String getTitle() {
+	
+    public int getId()
+    {
+        return id;
+    }
+    public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
