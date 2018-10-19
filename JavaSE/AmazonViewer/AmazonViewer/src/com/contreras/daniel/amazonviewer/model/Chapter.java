@@ -53,6 +53,17 @@ public class Chapter extends Movie
     	System.out.println(super.getId());
     	System.out.println(this.id);
     }
-        
+    
+    @Override
+    public String toString() {
+       return ":: Chapter ::"+
+       "\nTitle: " + getTitle() +
+               "\nGenre: " + getGenre() +
+               "\nYear: " + getYear() +
+               "\nDirector: " + getDirector() +
+               "\nDuration: " + getDuration() +
+               "\nSeason: " + seasonNumber;
+    }
+    
 
 }

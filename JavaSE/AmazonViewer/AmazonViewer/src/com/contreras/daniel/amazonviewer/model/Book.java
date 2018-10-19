@@ -15,7 +15,7 @@ import java.util.Date;
  * @author dcontrer
  *
  */
-public class Book extends Publication
+public class Book extends Publication implements IVisualizable
 {
     private int id;
     private String isbn;
@@ -84,4 +84,24 @@ public class Book extends Publication
     {
         this.timeRead = timeReaded;
     }
+
+    /* (non-Javadoc)
+     * @see com.contreras.daniel.amazonviewer.model.IVisualizable#startToSee(java.util.Date)
+     */
+    @Override
+    public Date startToSee(Date dateI)
+    {
+        return dateI;
+    }
+
+    /* (non-Javadoc)
+     * @see com.contreras.daniel.amazonviewer.model.IVisualizable#stopToSee(java.util.Date, java.util.Date)
+     */
+    @Override
+    public void stopToSee(Date sDate, Date eDate)
+    {
+        int seconds = (int)(eDate.getTime() - sDate.getTime())/1000;
+        setTimeReaded(seconds);        
+    }
+    
 }

@@ -5,3 +5,5 @@ En una interfaz solo se puede usar el modificador de accesso default.
 
 Cuando detectamos metodos que pueden ser incluidos en entidades de diferentes familias, se trata de
 una interfaz, a diferencia de la herencia que es dentro de la misma familia.
+
+En las clases que imprementa la interfaz siempre habra que sobrescribir los metodos.

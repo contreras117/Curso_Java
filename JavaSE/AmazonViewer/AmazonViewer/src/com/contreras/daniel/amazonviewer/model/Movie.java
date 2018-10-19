@@ -9,12 +9,13 @@
 
 package com.contreras.daniel.amazonviewer.model;
 
+import java.util.Date;
 
 /**
  * @author dcontrer
  *
  */
-public class Movie extends Film
+public class Movie extends Film implements IVisualizable
 {
 	//El atributo id se dejo en cada clase hija por que es una buena practica en caso de que cada id tenga reglas especificas o sea de distinto tipo.
     private int id;
@@ -54,12 +55,32 @@ public class Movie extends Film
     
    @Override
    public String toString() {
-	   return "Title: " + getTitle() +
+	   return ":: Movie ::"+ 
+	   "\nTitle: " + getTitle() +
 			   "\nGenre: " + getGenre() +
 			   "\nYear: " + getYear() +
 			   "\nDirector: " + getDirector() +
 			   "\nDuration: " + getDuration();
    }
+
+/* (non-Javadoc)
+ * @see com.contreras.daniel.amazonviewer.model.IVisualizable#startToSee(java.util.Date)
+ */
+@Override
+public Date startToSee(Date dateI)
+{
+    return dateI;
+}
+
+/* (non-Javadoc)
+ * @see com.contreras.daniel.amazonviewer.model.IVisualizable#stopToSee(java.util.Date, java.util.Date)
+ */
+@Override
+public void stopToSee(Date sDate, Date eDate)
+{
+    int seconds = (int)(eDate.getTime() - sDate.getTime())/1000;
+    setTimeViewed(seconds);
+}
     
     
     
