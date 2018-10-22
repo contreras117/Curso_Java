@@ -12,12 +12,15 @@ public class Publication {
     
     
     
-	public Publication(String title, Date editionDate, String genre, String editiorial) {
+    
+    
+	public Publication(String title, Date editionDate, String genre, String editiorial, String[] authors) {
 		super();
 		this.title = title;
 		this.editionDate = editionDate;
 		this.genre = genre;
 		this.editiorial = editiorial;
+		this.authors = authors;
 	}
 	
 	public int getId()
@@ -58,11 +61,15 @@ public class Publication {
     
 	@Override
 	   public String toString() {
-		   return "Title: " + getTitle() +
+		String message ="Title: " + getTitle() +
 				   "\nGenre: " + getGenre() +
 				   "\nYear: " + editionDate.getYear() +
 				   "\nEdotorial: " + editiorial +
-				   "\nAuthors: " + authors;
+				   "\nAuthors: \n";
+		for (String author : authors) {
+			message += "\t" + author;
+		}
+		return message;
 	   }
     
 }

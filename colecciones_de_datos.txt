@@ -1,0 +1,9 @@
+Las colecciones de datos exteinden de la interfaz collection y solo pueden ser usadas para
+almacenar objetos. Para almacenar datos primitivos es necesarios usar los wrappers (Integer, Char, etc..).
+
+
+A diferencia de los array, el tamaño de los collection es dinamico.
+
+
+La diferencia entre List y Set es que en un List los elementos estaran ordenados y puede haber elementos
+repetidos, mientras que en un Set los elementos pueden estar o no ordenados y no puede haber elementos repetidos.

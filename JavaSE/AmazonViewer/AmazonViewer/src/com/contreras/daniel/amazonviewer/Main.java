@@ -15,17 +15,18 @@ public class Main {
 		showMenu();
 		
 		Movie movie = new Movie("A star is born", "drama", 140, "Bradley Cooper", (short)2018);
-		System.out.println(movie);
+		//System.out.println(movie);
 		
 		Chapter chapter = new Chapter("Pilot","algo", 54,"Alguien",(short)2004,(byte)1);
 		chapter.printId();
-		System.out.println(chapter);
+		//System.out.println(chapter);
 		
 		Book book = new Book("EGM",new Date(), "sci-fi", "Omega", "231asgfasd132");
 		System.out.println(book);
 		
 		Magazine magazine = new Magazine("EGM",new Date(), "sci-fi", "Televisa");
-		System.out.println(magazine);
+		//System.out.println(magazine);
+
 		
 		
 	}

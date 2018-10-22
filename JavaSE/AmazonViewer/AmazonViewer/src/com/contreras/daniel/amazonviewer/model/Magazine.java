@@ -22,8 +22,8 @@ public class Magazine extends Publication
     
 
 
-	public Magazine(String title, Date editionDate, String genre, String editiorial) {
-		super(title, editionDate, genre, editiorial);
+	public Magazine(String title, Date editionDate, String genre, String editiorial, String[] authors) {
+		super(title, editionDate, genre, editiorial, authors);
 	}
 
 	/**

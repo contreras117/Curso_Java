@@ -24,8 +24,8 @@ public class Book extends Publication implements IVisualizable
     
     
 
-	public Book(String title, Date editionDate, String genre, String editiorial, String isbn) {
-		super(title, editionDate, genre, editiorial);
+	public Book(String title, Date editionDate, String genre, String editiorial, String[] authors, String isbn) {
+		super(title, editionDate, genre, editiorial, authors);
 		this.isbn = isbn;
 	}
 

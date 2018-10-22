@@ -11,6 +11,7 @@
 //TODO La duracion en serie deberia ser un metodo que sume la duracio de todos los epsidios en chapters[]
 package com.contreras.daniel.amazonviewer.model;
 
+import java.util.ArrayList;
 
 /**
  * @author dcontrer
@@ -21,7 +22,7 @@ public class Serie extends Film
     private int id;
     private String creator;
     private int seasonQuantity;
-    private Chapter[] chapters;
+    private ArrayList<Chapter> chapters;
     
     
     
@@ -79,7 +80,7 @@ public class Serie extends Film
     /**
      * @return the chapters
      */
-    public Chapter[] getChapters()
+    public ArrayList<Chapter> getChapters()
     {
         return chapters;
     }
@@ -88,7 +89,7 @@ public class Serie extends Film
     /**
      * @param chapters the chapters to set
      */
-    public void setChapters(Chapter[] chapters)
+    public void setChapters(ArrayList<Chapter> chapters)
     {
         this.chapters = chapters;
     }
