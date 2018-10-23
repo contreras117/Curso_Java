@@ -15,6 +15,8 @@ public class Film {
 		this.title = title;
 		this.genre = genre;
 		this.duration = duration;
+		this.viewed = false;
+		this.timeViewed = 0;
 	}
 	
 	
@@ -46,8 +48,8 @@ public class Film {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	public boolean isViewed() {
-		return viewed;
+	public String isViewed() {
+		return viewed ? "Si" : "No";
 	}
 	public void setViewed(boolean viewed) {
 		this.viewed = viewed;

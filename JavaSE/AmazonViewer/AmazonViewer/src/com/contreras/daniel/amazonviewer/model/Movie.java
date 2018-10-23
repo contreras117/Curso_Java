@@ -9,6 +9,7 @@
 
 package com.contreras.daniel.amazonviewer.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -82,7 +83,16 @@ public void stopToSee(Date sDate, Date eDate)
     setTimeViewed(seconds);
 }
     
+public static ArrayList<Movie> makeMoviesList(){
     
+    ArrayList<Movie> movies = new ArrayList();
+    movies.add(new Movie("Gone Girl", "Crime", 149, "David Fincher", (short)2014));
+    movies.add(new Movie("A star is born", "Drama", 136, "Bradley Cooper", (short)2018));
+    movies.add(new Movie("John Wick", "Action",101,"Chad Stahelski",(short)2014));
+    movies.add(new Movie("The Lion King", "Animation", 88, "Roger Allers", (short)1994));
+    movies.add(new Movie("Saving Private Ryan", "Drama", 169, "Steven Spielberg", (short)1998));
+    return movies;  
+}
     
     
 }
