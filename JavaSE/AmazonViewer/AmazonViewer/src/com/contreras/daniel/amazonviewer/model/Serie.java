@@ -21,17 +21,18 @@ public class Serie extends Film
 {
     private int id;
     private String creator;
-    private int seasonQuantity;
+    private byte seasonQuantity;
     private ArrayList<Chapter> chapters;
     
     
     
     
     
-	public Serie(String title, String genre, int duration, String creator, int seasonQuantity) {
+	public Serie(String title, String genre, int duration, String creator, byte seasonQuantity, ArrayList<Chapter> chapters) {
 		super(title, genre, duration);
 		this.creator = creator;
 		this.seasonQuantity = seasonQuantity;
+		this.chapters = chapters;
 	}
 
 	/**
@@ -62,7 +63,7 @@ public class Serie extends Film
     /**
      * @return the seasonQuantity
      */
-    public int getSeasonQuantity()
+    public byte getSeasonQuantity()
     {
         return seasonQuantity;
     }
@@ -71,7 +72,7 @@ public class Serie extends Film
     /**
      * @param seasonQuantity the seasonQuantity to set
      */
-    public void setSeasonQuantity(int seasonQuantity)
+    public void setSeasonQuantity(byte seasonQuantity)
     {
         this.seasonQuantity = seasonQuantity;
     }
@@ -103,5 +104,27 @@ public class Serie extends Film
  			   "\nDirector: " + creator +
  			   "\nDuration: " + getDuration();
     }
+    
+    public void fillChapters() {
+        chapters = new ArrayList();
+        for (int i = 1; i <= 5; i++) {
+            chapters.add(new Chapter("Chapter" + i, "", 44, "Someone", getYear(), (byte) 1));
+        }
+    }
+    
+    public static ArrayList<Serie> makeSeriesList(){
+        
+        ArrayList<Serie> series = new ArrayList();
+        series.add(new Serie("Lost", "Adventure", 44, "J.J. Abrams", (byte)6, Chapter.makeChaptersList()));
+        series.add(new Serie("Battlestar Galactica", "Action", 44, "Ronald D. Moore", (byte)4,Chapter.makeChaptersList()));
+        series.add(new Serie("Breaking Bad", "Crime",44,"Vince Gilligan",(byte)5,Chapter.makeChaptersList()));
+        series.add(new Serie("Game of Thrones", "Action", 57, "David Beniof", (byte)8,Chapter.makeChaptersList()));
+        series.add(new Serie("How i met your mother", "Comedy", 22, "Carter Bays", (byte)9,Chapter.makeChaptersList()));
+        for (Serie serie : series) {
+            serie.fillChapters();
+        }
+        return series;  
+    }
+    
     
 }

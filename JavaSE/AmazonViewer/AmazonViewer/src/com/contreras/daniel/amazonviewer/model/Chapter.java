@@ -10,6 +10,7 @@
 //TODO Chapter esta heradanod el atributo genre de la clase Movie.
 package com.contreras.daniel.amazonviewer.model;
 
+import java.util.ArrayList;
 
 /**
  * @author dcontrer
@@ -63,6 +64,14 @@ public class Chapter extends Movie
                "\nDirector: " + getDirector() +
                "\nDuration: " + getDuration() +
                "\nSeason: " + seasonNumber;
+    }
+    
+    public static ArrayList<Chapter> makeChaptersList() {
+        ArrayList<Chapter> chapters = new ArrayList();
+        for (int i = 1; i <= 5; i++) {
+            chapters.add(new Chapter("Chapter" + i, "Genre", 44, "Someone", (short) 2014, (byte) 1));
+        }
+        return chapters;
     }
     
 

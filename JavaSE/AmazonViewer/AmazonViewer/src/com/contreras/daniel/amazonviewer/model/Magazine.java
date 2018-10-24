@@ -9,6 +9,7 @@
 
 package com.contreras.daniel.amazonviewer.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -33,5 +34,4 @@ public class Magazine extends Publication
     {
         return id;
     }
-
 }

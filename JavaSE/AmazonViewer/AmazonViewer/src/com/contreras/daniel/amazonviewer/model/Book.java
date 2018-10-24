@@ -9,6 +9,7 @@
 
 package com.contreras.daniel.amazonviewer.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -103,5 +104,13 @@ public class Book extends Publication implements IVisualizable
         int seconds = (int)(eDate.getTime() - sDate.getTime())/1000;
         setTimeReaded(seconds);        
     }
+    
+    public static ArrayList<Book> makeBooksList(){
+        ArrayList<Book> books = new ArrayList();
+        books.add(new Book("Ender's Game", new Date(1985,8,21), "Sci-fi", "Planeta",new String[] {"Orson Scott Card"} , "ADSF2342SA342D"));
+        books.add(new Book("A Game of Thrones", new Date(1996,8,6), "Fantasy", "Bantam Spectra",new String[] {"George R. R. Martin"} , "3214AFA43LHUI22"));
+        return books;  
+    }
+    
     
 }

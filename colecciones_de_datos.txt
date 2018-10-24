@@ -7,3 +7,38 @@ A diferencia de los array, el tamaño de los collection es dinamico.
 
 La diferencia entre List y Set es que en un List los elementos estaran ordenados y puede haber elementos
 repetidos, mientras que en un Set los elementos pueden estar o no ordenados y no puede haber elementos repetidos.
+
+
+La interface Set tendrá las siguientes características:
+
+    Almacena objetos únicos, no repetidos.
+    La mayoría de las veces los objetos se almacenarán en desorden.
+    No tenemos índice.
+
+
+La interface List tiene éstas características:
+
+    Puede almacenar objetos repetidos.
+    Los objetos se almacenan en orden secuencial.
+    Tenemos acceso al índice.
+
+
+
+De la interfaz Set se desprenden:
+
+    Clase HashSet
+    Interfaz SortedSet y de ella la clase TreeSet.
+
+
+HashSet los elementos se guardan en desorden y gracias al mecanismo llamado hashing (obtiene un identificador del objeto) permite almacenar objetos únicos.
+
+TreeSet almacena objetos únicos, y gracias a su estructura de árbol el acceso es sumamente rápido.
+
+
+De la interfaz List se desprenden:
+
+    Clase ArrayList puede tener duplicados, no está sincronizada por lo tanto es más rápida
+    Clase Vector es sincronizada, los datos están más seguros pero es más lento.
+    Clase LinkedList, puede contener elementos duplicados, no está sincronizada (es más rápida) al ser una estructura de datos doblemente ligada podemos añadir datos por encima de la pila o por debajo.
+
+

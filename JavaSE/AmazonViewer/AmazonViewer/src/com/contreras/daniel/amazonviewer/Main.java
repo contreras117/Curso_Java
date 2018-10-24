@@ -8,6 +8,7 @@ import com.contreras.daniel.amazonviewer.model.Book;
 import com.contreras.daniel.amazonviewer.model.Chapter;
 import com.contreras.daniel.amazonviewer.model.Magazine;
 import com.contreras.daniel.amazonviewer.model.Movie;
+import com.contreras.daniel.amazonviewer.model.Serie;
 
 public class Main
 {
@@ -122,20 +123,69 @@ public class Main
 
     private static void showSeries()
     {
-        int response = 1;
+        int response = 0;
+        ArrayList<Serie> series = Serie.makeSeriesList();
+        
         do
-        {
+        {   
             System.out.println("\n:: Series  ::\n");
-        }
-        while (response != 0);
+            for( Serie serie : series) {
+                System.out.println((series.indexOf(serie)+1) + ". "+ serie.getTitle() + " Watched: " + serie.isViewed());
+            }
+            
+            do {
+                response = getResponse();
+            }while (response < 0 || response > series.size());
+            
+            if (response == 0) {
+                break;
+            }
+            else {
+                showChapters(series.get(response - 1).getChapters());
+            }
+            
+        }while (response != 0);
     }
 
-    private static void showChapters()
+    private static void showChapters(ArrayList<Chapter> chapters)
     {
-        int response = 1;
+        int response = 0;
         do
         {
             System.out.println("\n:: Chapters  ::\n");
+            for (Chapter chapter : chapters) {
+                System.out.println((chapters.indexOf(chapter)+1) + ". " + chapter.getTitle() + " Watched: " + chapter.isViewed());
+            }
+            System.out.println("0. Return to Menu.\n");
+            
+            
+            do {
+                response = getResponse();
+            }while (response <0 || response > chapters.size()-1);
+            
+            
+            if (response == 0) {
+                break;
+            }
+            else {
+                Chapter chapterSelected = chapters.get(response - 1);
+                chapterSelected.setViewed(true);
+                Date dateI = chapterSelected.startToSee(new Date());
+                
+                try
+                {
+                    Thread.sleep(10000);
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                
+                chapterSelected.stopToSee(dateI, new Date());
+                System.out.println("\nYou watched:\n" + chapterSelected + 
+                    "\nFor: " + chapterSelected.getTimeViewed());
+            }
+            
         }
         while (response != 0);
     }
