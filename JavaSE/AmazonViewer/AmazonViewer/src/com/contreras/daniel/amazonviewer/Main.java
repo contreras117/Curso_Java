@@ -1,6 +1,7 @@
 
 package com.contreras.daniel.amazonviewer;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -9,25 +10,17 @@ import com.contreras.daniel.amazonviewer.model.Chapter;
 import com.contreras.daniel.amazonviewer.model.Magazine;
 import com.contreras.daniel.amazonviewer.model.Movie;
 import com.contreras.daniel.amazonviewer.model.Serie;
+import com.contreras.daniel.makefile.File;
 
 public class Main
 {
+    
+    static ArrayList<Movie> movies;
 
     public static void main(String[] args)
     {
         // TODO Auto-generated method stub
         showMenu();
-
-        // Chapter chapter = new Chapter("Pilot","algo", 54,"Alguien",(short)2004,(byte)1);
-        // chapter.printId();
-        // System.out.println(chapter);
-
-        // Book book = new Book("EGM",new Date(), "sci-fi", "Omega", "231asgfasd132");
-        // System.out.println(book);
-
-        // Magazine magazine = new Magazine("EGM",new Date(), "sci-fi", "Televisa");
-        // System.out.println(magazine);
-
     }
 
     private static void showMenu()
@@ -80,7 +73,7 @@ public class Main
 
     private static void showMovies() {
 		int response = 0;
-		ArrayList<Movie> movies = Movie.makeMoviesList();
+		movies = Movie.makeMoviesList();
 		
 		do {
 			System.out.println("\n:: Movies  ::\n");
@@ -212,12 +205,17 @@ public class Main
 
     private static void makeReport()
     {
-
+        File file = prepareReport("Reporte", ":: MOVIES ::", "txt");
+        file.makeFile();
+        
     }
 
     private static void makeReport(Date today)
     {
-
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        String stToday = sf.format(today);
+        File file = prepareReport("Reporte_" + stToday, ":: MOVIES ::", "txt");
+        file.makeFile();
     }
 
     private static int getResponse()
@@ -234,6 +232,23 @@ public class Main
             resp = getResponse();
         }
 
+        sc.close();
         return resp;
+    }
+    
+    private static File prepareReport(String name, String title, String extention) {
+        File file = new File();
+        file.setName(name);
+        file.setExtention(extention);
+        file.setTitle(title);
+        String content = file.getTitle() + "\n";
+        for (Movie movie : movies)
+        {
+            if(movie.getViewed()) {
+                content += movie + "\n\n";
+            }
+        }
+        file.setContent(content);
+        return file;
     }
 }

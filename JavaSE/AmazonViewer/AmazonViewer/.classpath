@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Git/Curso_Java/JavaSE/AmazonViewer/AmazonViewer/libs/makefike.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
