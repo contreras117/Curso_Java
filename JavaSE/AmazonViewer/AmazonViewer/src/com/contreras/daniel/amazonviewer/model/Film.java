@@ -49,7 +49,7 @@ public class Film {
 		this.duration = duration;
 	}
 	public String isViewed() {
-		return viewed ? "Si" : "No";
+		return viewed ? "Yes" : "No";
 	}
 	
 	public boolean getViewed() {

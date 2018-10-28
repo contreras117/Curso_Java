@@ -1,13 +1,53 @@
+:: WHAT HAVE YOU WATCHED ::
+
 :: MOVIES ::
 :: Movie ::
-Title: Gone Girl
-Genre: Crime
-Year: 2014
-Director: David Fincher
-Duration: 149
+Title: A star is born
+Genre: Drama
+Year: 2018
+Director: Bradley Cooper
+Duration: 136
 :: Movie ::
 Title: John Wick
 Genre: Action
 Year: 2014
 Director: Chad Stahelski
 Duration: 101
+
+
+:: SERIES ::
+:: Serie ::
+Title: Lost
+Genre: Adventure
+Year: 0
+Director: J.J. Abrams
+Duration: 44
+:: Chapter ::
+Title: Chapter1
+Genre: 
+Year: 0
+Director: Someone
+Duration: 44
+Season: 1
+:: Chapter ::
+Title: Chapter4
+Genre: 
+Year: 0
+Director: Someone
+Duration: 44
+Season: 1
+
+
+:: BOOKS ::
+Title: Ender's Game
+Genre: Sci-fi
+Year: 1985
+Edotorial: Planeta
+Authors: 
+	Orson Scott Card
+Title: A Game of Thrones
+Genre: Fantasy
+Year: 1996
+Edotorial: Bantam Spectra
+Authors: 
+	George R. R. Martin

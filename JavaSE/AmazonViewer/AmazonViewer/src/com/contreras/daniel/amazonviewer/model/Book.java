@@ -57,9 +57,13 @@ public class Book extends Publication implements IVisualizable
     /**
      * @return the readed
      */
-    public boolean isReaded()
+    public boolean getRead()
     {
         return read;
+    }
+    
+    public String isRead() {
+    	return read ? "Yes":"No";
     }
     
     /**
