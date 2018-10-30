@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Platzi/Curso_Java/JavaSE/AmazonViewer/AmazonViewer/libs/makefike.jar"/>
+	<classpathentry kind="lib" path="C:/Git/Curso_Java/JavaSE/AmazonViewer/AmazonViewer/libs/makefike.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

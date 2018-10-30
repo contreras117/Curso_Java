@@ -20,13 +20,15 @@ public class Chapter extends Movie
 {
     private int id;
     private byte seasonNumber;
+    private Serie serie;
     
     
     //Chapter no debe tener genero
-    public Chapter(String title, String genre, int duration, String director, short year, byte seasonNumber) {
+    public Chapter(String title, String genre, int duration, String director, short year, byte seasonNumber, Serie serie) {
 		super(title, genre, duration, director, year);
 		this.seasonNumber = seasonNumber;
 		this.id = (int)(Math.random() * 100);
+		this.serie = serie;
 	}
 
     
@@ -50,6 +52,23 @@ public class Chapter extends Movie
         this.seasonNumber = seasonNumber;
     }
     
+    /**
+     * @return the serie
+     */
+    public Serie getSerie()
+    {
+        return serie;
+    }
+
+    /**
+     * @param serie the serie to set
+     */
+    public void setSerie(Serie serie)
+    {
+        this.serie = serie;
+    }
+
+
     public void printId() {
     	System.out.println(super.getId());
     	System.out.println(this.id);
@@ -66,13 +85,23 @@ public class Chapter extends Movie
                "\nSeason: " + seasonNumber;
     }
     
-    public static ArrayList<Chapter> makeChaptersList() {
+    public static ArrayList<Chapter> makeChaptersList(Serie serie) {
         ArrayList<Chapter> chapters = new ArrayList();
         for (int i = 1; i <= 5; i++) {
-            chapters.add(new Chapter("Chapter" + i, "Genre", 44, "Someone", (short) 2014, (byte) 1));
+            chapters.add(new Chapter("Chapter" + i, "Genre", 44, "Someone", (short) 2014, (byte) 1, serie));
         }
         return chapters;
     }
     
+    /* (non-Javadoc)
+     * @see com.contreras.daniel.amazonviewer.model.Movie#view()
+     */
+    @Override
+    public void view()
+    {
+        // TODO Auto-generated method stub
+        super.view();
+        
+    }
 
 }
