@@ -1,6 +1,6 @@
 package com.contreras.daniel.amazonviewer.model;
 
-public abstract class Film {
+public class Film {
 
     private int id;
 	private String title;
@@ -68,11 +68,4 @@ public abstract class Film {
 		this.timeViewed = timeViewed;
 	}
 	
-	public abstract void view();
-	
-	protected static void simulateWatch() {
-        for (int i = 0; i < 100000; i++) {
-           System.out.println("Watching..........\n");
-       }
-   }
 }

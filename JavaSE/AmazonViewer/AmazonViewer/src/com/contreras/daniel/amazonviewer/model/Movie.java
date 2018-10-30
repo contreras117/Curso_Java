@@ -93,20 +93,6 @@ public static ArrayList<Movie> makeMoviesList(){
     movies.add(new Movie("Saving Private Ryan", "Drama", 169, "Steven Spielberg", (short)1998));
     return movies;  
 }
-
-@Override
-public void view()
-{
-    // TODO Auto-generated method stub
-    setViewed(true);
-    Date dateI = startToSee(new Date());
-    simulateWatch();
-    stopToSee(dateI, new Date());
-    System.out.println("\nYou watched:\n" + toString() + 
-        "\nFor: " + getTimeViewed());
-}
-
-
     
     
 }

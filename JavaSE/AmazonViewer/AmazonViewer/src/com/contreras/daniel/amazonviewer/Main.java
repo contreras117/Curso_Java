@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.Scanner;
 import com.contreras.daniel.amazonviewer.model.Book;
 import com.contreras.daniel.amazonviewer.model.Chapter;
-import com.contreras.daniel.amazonviewer.model.IVisualizable;
 import com.contreras.daniel.amazonviewer.model.Magazine;
 import com.contreras.daniel.amazonviewer.model.Movie;
 import com.contreras.daniel.amazonviewer.model.Serie;
@@ -96,7 +95,12 @@ public class Main
 			}
 			else {
 			    Movie movieSelected = movies.get(response - 1);
-			    movieSelected.view();
+			    movieSelected.setViewed(true);
+			    Date dateI = movieSelected.startToSee(new Date());
+			    simulateWatch();
+			    movieSelected.stopToSee(dateI, new Date());
+			    System.out.println("\nYou watched:\n" + movieSelected + 
+			        "\nFor: " + movieSelected.getTimeViewed());
 			}
 			
 			
@@ -150,7 +154,12 @@ public class Main
             }
             else {
                 Chapter chapterSelected = chapters.get(response - 1);
-                chapterSelected.view();
+                chapterSelected.setViewed(true);
+                Date dateI = chapterSelected.startToSee(new Date());
+                simulateWatch();
+                chapterSelected.stopToSee(dateI, new Date());
+                System.out.println("\nYou watched:\n" + chapterSelected + 
+                    "\nFor: " + chapterSelected.getTimeViewed());
             }
             
         }
@@ -267,5 +276,9 @@ public class Main
         return file;
     }
     
-    
+    private static void simulateWatch() {
+    	 for (int i = 0; i < 100000; i++) {
+			System.out.println("Watching..........\n");
+		}
+    }
 }

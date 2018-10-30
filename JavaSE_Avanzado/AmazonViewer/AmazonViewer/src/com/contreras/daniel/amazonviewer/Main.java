@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Scanner;
 import com.contreras.daniel.amazonviewer.model.Book;
 import com.contreras.daniel.amazonviewer.model.Chapter;
+import com.contreras.daniel.amazonviewer.model.IVisualizable;
 import com.contreras.daniel.amazonviewer.model.Magazine;
 import com.contreras.daniel.amazonviewer.model.Movie;
 import com.contreras.daniel.amazonviewer.model.Serie;
@@ -95,12 +96,7 @@ public class Main
 			}
 			else {
 			    Movie movieSelected = movies.get(response - 1);
-			    movieSelected.setViewed(true);
-			    Date dateI = movieSelected.startToSee(new Date());
-			    simulateWatch();
-			    movieSelected.stopToSee(dateI, new Date());
-			    System.out.println("\nYou watched:\n" + movieSelected + 
-			        "\nFor: " + movieSelected.getTimeViewed());
+			    movieSelected.view();
 			}
 			
 			
@@ -154,12 +150,7 @@ public class Main
             }
             else {
                 Chapter chapterSelected = chapters.get(response - 1);
-                chapterSelected.setViewed(true);
-                Date dateI = chapterSelected.startToSee(new Date());
-                simulateWatch();
-                chapterSelected.stopToSee(dateI, new Date());
-                System.out.println("\nYou watched:\n" + chapterSelected + 
-                    "\nFor: " + chapterSelected.getTimeViewed());
+                chapterSelected.view();
             }
             
         }
@@ -186,12 +177,7 @@ public class Main
             }
             else {
             	Book bookSelected = books.get(response - 1);
-            	bookSelected.setReaded(true);
-            	Date dateI = bookSelected.startToSee(new Date());
-                simulateWatch();
-                bookSelected.stopToSee(dateI, new Date());
-                System.out.println("\nYou watched:\n" + bookSelected + 
-                    "\nFor: " + bookSelected.getTimeReaded());
+            	bookSelected.view();
             	
             }
         }
@@ -276,9 +262,5 @@ public class Main
         return file;
     }
     
-    private static void simulateWatch() {
-    	 for (int i = 0; i < 100000; i++) {
-			System.out.println("Watching..........\n");
-		}
-    }
+    
 }
