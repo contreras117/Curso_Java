@@ -7,12 +7,25 @@ import java.util.Date;
 import java.util.Scanner;
 import com.contreras.daniel.amazonviewer.model.Book;
 import com.contreras.daniel.amazonviewer.model.Chapter;
-import com.contreras.daniel.amazonviewer.model.IVisualizable;
 import com.contreras.daniel.amazonviewer.model.Magazine;
 import com.contreras.daniel.amazonviewer.model.Movie;
 import com.contreras.daniel.amazonviewer.model.Serie;
 import com.contreras.daniel.makefile.File;
 
+
+/**
+ * <h1>AmazonViewer</h1>
+ * AmazonViewer is a program that allow to watch Movies, TV Series
+ * with its their respective Chapters, Books and Magazines. It allows you
+ * to generate general reports and with with today's date.
+ * <p>
+ * There are some rules, like that all elements can be watched or read, except
+ * the Magazines. They only can be watched as a catalog.
+ * 
+ * @author dcontrer
+ * @version 1.1
+ * @since 2018
+ * */
 public class Main
 {
     

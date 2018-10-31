@@ -16,7 +16,16 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 /**
+ * <h1>File</h1>
+ * File is a class to generate text files.
+ * <p>
+ * This class is used to generate a text file giving it a name, a title
+ * the extension and the content.
+ * 
  * @author dcontrer
+ * @version 1.1
+ * @since 2018
+ * 
  *
  */
 public class File
@@ -35,7 +44,7 @@ public class File
     }
     
     /**
-     * @param content the content to set
+     * @param content the content of the file to create.
      */
     public void setContent(String content)
     {
@@ -43,7 +52,7 @@ public class File
     }
     
     /**
-     * @return the name
+     * @return the name of the file.
      */
     public String getName()
     {
@@ -51,7 +60,7 @@ public class File
     }
     
     /**
-     * @param name the name to set
+     * @param name the name of the file.
      */
     public void setName(String name)
     {
@@ -59,7 +68,7 @@ public class File
     }
     
     /**
-     * @return the title
+     * @return the title of the file.
      */
     public String getTitle()
     {
@@ -67,7 +76,7 @@ public class File
     }
     
     /**
-     * @param title the title to set
+     * @param title the title of the file.
      */
     public void setTitle(String title)
     {
@@ -75,26 +84,30 @@ public class File
     }
     
     /**
-     * @return the extention
+     * @return the extension of the file
      */
-    public String getExtention()
+    public String getExtension()
     {
         return extention;
     }
     
     /**
-     * @param extention the extention to set
+     * @param extention the extension of the file
      */
     public void setExtention(String extention)
     {
         this.extention = extention;
     }
     
+    /**
+     * This method creates the file with the parameters gave to it.
+     * 
+     * */
     public void makeFile() {
         if (!StringUtils.isEmpty(getContent()) && !StringUtils.isEmpty(getTitle()) && !StringUtils.isEmpty(getName()))
         {
             try {
-                java.io.File file = new java.io.File(getName() + "." + getExtention());
+                java.io.File file = new java.io.File(getName() + "." + getExtension());
                 FileOutputStream fos = new FileOutputStream(file);
                 OutputStreamWriter osw = new OutputStreamWriter(fos);
                 BufferedWriter bw = new BufferedWriter(osw);

@@ -1,5 +1,18 @@
 package com.contreras.daniel.amazonviewer.model;
 
+
+/**
+ * <h1>Film<h1>
+ * Film is a father abstract class.
+ * <p>
+ * This class is the base class of family Films. As this class is
+ * abstract, it can't be instanced. It contains the abstract method
+ * {@code view()} that is required to implement in all the elements in this family.
+ * 
+ * @author dcontrer
+ * @version 1.1
+ * @since 2018
+ * */
 public abstract class Film {
 
     private int id;
@@ -68,6 +81,10 @@ public abstract class Film {
 		this.timeViewed = timeViewed;
 	}
 	
+	/**
+	 * {@code view()} is an abstract method that is required to implement.
+	 * 
+	 * */
 	public abstract void view();
 	
 	protected static void simulateWatch() {

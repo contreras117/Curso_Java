@@ -13,10 +13,25 @@ import java.util.Date;
 
 /**
  * @author dcontrer
+ * @since 2018  
  *
  */
 public interface IVisualizable
 {
-    Date startToSee(Date dateI);
+	/**
+	 * This method capture the exact start watching time.
+	 * 
+	 * @param {@code sDate} Is an object {@code Date} with the exact start time.
+	 * @return It returns the date and time captured.
+	 * */
+    Date startToSee(Date sDate);
+    
+    
+    /**
+     * This method capture the exact start and end watching time.
+     * 
+     * @param {@code sDate} Is an object {@code Date} with the exact start time.
+     * @param {@code eDate} Is an object {@code Date} with the exact end time.
+     * */
     void stopToSee(Date sDate, Date eDate);
 }

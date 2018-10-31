@@ -68,9 +68,9 @@ public class Movie extends Film implements IVisualizable
  * @see com.contreras.daniel.amazonviewer.model.IVisualizable#startToSee(java.util.Date)
  */
 @Override
-public Date startToSee(Date dateI)
+public Date startToSee(Date sDate)
 {
-    return dateI;
+    return sDate;
 }
 
 /* (non-Javadoc)

@@ -105,7 +105,7 @@ public class Chapter extends Movie
         serie.setViewed(true);
         for (Chapter chapter : chapters) {
 			if (!chapter.getViewed()) {
-				serie.setViewed(false);
+				serie.view();
 			}
 		}
     }
