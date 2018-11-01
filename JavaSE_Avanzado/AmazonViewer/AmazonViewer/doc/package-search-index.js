@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"com.contreras.daniel.amazonviewer"},{"l":"com.contreras.daniel.amazonviewer.model"}]

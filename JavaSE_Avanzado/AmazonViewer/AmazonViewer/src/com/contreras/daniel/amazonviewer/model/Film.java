@@ -2,7 +2,7 @@ package com.contreras.daniel.amazonviewer.model;
 
 
 /**
- * <h1>Film<h1>
+ * <h1>Film</h1>
  * Film is a father abstract class.
  * <p>
  * This class is the base class of family Films. As this class is

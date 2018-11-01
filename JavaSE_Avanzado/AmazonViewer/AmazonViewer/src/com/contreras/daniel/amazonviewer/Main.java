@@ -10,6 +10,7 @@ import com.contreras.daniel.amazonviewer.model.Chapter;
 import com.contreras.daniel.amazonviewer.model.Magazine;
 import com.contreras.daniel.amazonviewer.model.Movie;
 import com.contreras.daniel.amazonviewer.model.Serie;
+import com.contreras.daniel.amazonviewer.utils.UserMenuResponse;
 import com.contreras.daniel.makefile.File;
 
 
@@ -54,7 +55,7 @@ public class Main
             System.out.println("6. Today Report");
             System.out.println("0. Exit");
 
-            response = getResponse();
+            response = UserMenuResponse.getResponse();
 
             switch (response)
             {
@@ -100,7 +101,7 @@ public class Main
 				if (response > movies.size()) {
 					System.out.println("Please select a valid option!");
 				}
-			    response = getResponse();
+			    response = UserMenuResponse.getResponse();
 			}while (response <0 || response > movies.size());
 			
 			
@@ -128,7 +129,7 @@ public class Main
             System.out.println("0. Return to Menu.\n");
             
             do {
-                response = getResponse();
+                response = UserMenuResponse.getResponse();
             }while (response < 0 || response > series.size());
             
             if (response == 0) {
@@ -154,7 +155,7 @@ public class Main
             
             
             do {
-                response = getResponse();
+                response = UserMenuResponse.getResponse();
             }while (response <0 || response > chapters.size());
             
             
@@ -182,7 +183,7 @@ public class Main
             System.out.println("0. Return to Menu.\n");
             
             do {
-            	response = getResponse();
+            	response = UserMenuResponse.getResponse();
             }while(response <0 || response > books.size());
             
             if(response == 0) {
@@ -220,23 +221,6 @@ public class Main
         String stToday = sf.format(today);
         File file = prepareReport("Reporte_" + stToday, ":: WHAT HAVE YOU WATCHED ::", "txt");
         file.makeFile();
-    }
-
-    private static int getResponse()
-    {
-        Scanner sc = new Scanner(System.in);
-        int resp;
-        try
-        {
-            resp = sc.nextInt();
-        }
-        catch (Exception e)
-        {
-            System.out.println("Please enter a number...\n");
-            resp = getResponse();
-        }
-
-        return resp;
     }
     
     private static File prepareReport(String name, String title, String extention) {

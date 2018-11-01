@@ -13,8 +13,13 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
+ * Extends {@link Film}
+ * Implements {@link IVisualizable}
+ * 
  * @author dcontrer
- *
+ * @version 1.1
+ * @since 2018
+ * 
  */
 public class Movie extends Film implements IVisualizable
 {
@@ -64,8 +69,8 @@ public class Movie extends Film implements IVisualizable
 			   "\nDuration: " + getDuration();
    }
 
-/* (non-Javadoc)
- * @see com.contreras.daniel.amazonviewer.model.IVisualizable#startToSee(java.util.Date)
+/**
+ * {@inheritDoc}
  */
 @Override
 public Date startToSee(Date sDate)
@@ -73,9 +78,9 @@ public Date startToSee(Date sDate)
     return sDate;
 }
 
-/* (non-Javadoc)
- * @see com.contreras.daniel.amazonviewer.model.IVisualizable#stopToSee(java.util.Date, java.util.Date)
- */
+/**
+ * {@inheritDoc}
+ * */
 @Override
 public void stopToSee(Date sDate, Date eDate)
 {
@@ -94,6 +99,10 @@ public static ArrayList<Movie> makeMoviesList(){
     return movies;  
 }
 
+
+/**
+ * {@inheritDoc}
+ * */
 @Override
 public void view()
 {

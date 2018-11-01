@@ -13,7 +13,12 @@ package com.contreras.daniel.amazonviewer.model;
 import java.util.ArrayList;
 
 /**
+ * Extends {@link Movie}
+ * @see Film
+ * 
  * @author dcontrer
+ * @version 1.1 
+ * @since 2018
  *
  */
 public class Chapter extends Movie

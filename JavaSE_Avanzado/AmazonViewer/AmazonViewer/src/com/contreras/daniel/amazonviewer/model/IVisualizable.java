@@ -21,7 +21,7 @@ public interface IVisualizable
 	/**
 	 * This method capture the exact start watching time.
 	 * 
-	 * @param {@code sDate} Is an object {@code Date} with the exact start time.
+	 * @param sDate is an object {@code Date} with the exact start time.
 	 * @return It returns the date and time captured.
 	 * */
     Date startToSee(Date sDate);
@@ -30,8 +30,8 @@ public interface IVisualizable
     /**
      * This method capture the exact start and end watching time.
      * 
-     * @param {@code sDate} Is an object {@code Date} with the exact start time.
-     * @param {@code eDate} Is an object {@code Date} with the exact end time.
+     * @param sDate is an object {@code Date} with the exact start time.
+     * @param eDate is an object {@code Date} with the exact end time.
      * */
     void stopToSee(Date sDate, Date eDate);
 }
