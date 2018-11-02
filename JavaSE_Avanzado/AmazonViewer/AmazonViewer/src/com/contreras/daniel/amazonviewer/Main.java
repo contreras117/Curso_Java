@@ -4,7 +4,6 @@ package com.contreras.daniel.amazonviewer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 import com.contreras.daniel.amazonviewer.model.Book;
 import com.contreras.daniel.amazonviewer.model.Chapter;
 import com.contreras.daniel.amazonviewer.model.Magazine;
@@ -55,7 +54,7 @@ public class Main
             System.out.println("6. Today Report");
             System.out.println("0. Exit");
 
-            response = UserMenuResponse.getResponse();
+            response = UserMenuResponse.getResponse(0,6);
 
             switch (response)
             {
@@ -97,13 +96,8 @@ public class Main
 			}
 			System.out.println("0. Return to Menu.\n");
 			
-			do {
-				if (response > movies.size()) {
-					System.out.println("Please select a valid option!");
-				}
-			    response = UserMenuResponse.getResponse();
-			}while (response <0 || response > movies.size());
 			
+			response = UserMenuResponse.getResponse(0,movies.size());
 			
 			if (response == 0) {
 			    break;
@@ -128,9 +122,7 @@ public class Main
             }
             System.out.println("0. Return to Menu.\n");
             
-            do {
-                response = UserMenuResponse.getResponse();
-            }while (response < 0 || response > series.size());
+            response = UserMenuResponse.getResponse(0, series.size());
             
             if (response == 0) {
                 break;
@@ -153,12 +145,8 @@ public class Main
             }
             System.out.println("0. Return to Menu.\n");
             
-            
-            do {
-                response = UserMenuResponse.getResponse();
-            }while (response <0 || response > chapters.size());
-            
-            
+            response = UserMenuResponse.getResponse(0, chapters.size());
+                        
             if (response == 0) {
                 break;
             }
@@ -182,9 +170,7 @@ public class Main
 			}
             System.out.println("0. Return to Menu.\n");
             
-            do {
-            	response = UserMenuResponse.getResponse();
-            }while(response <0 || response > books.size());
+            response = UserMenuResponse.getResponse(0, books.size());
             
             if(response == 0) {
             	break;

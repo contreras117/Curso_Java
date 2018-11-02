@@ -22,12 +22,14 @@ public class Book extends Publication implements IVisualizable
     private String isbn;
     private boolean read;
     private int timeRead;
+    private ArrayList<Page> pages;
     
     
 
-	public Book(String title, Date editionDate, String genre, String editiorial, String[] authors, String isbn) {
+	public Book(String title, Date editionDate, String genre, String editiorial, String[] authors, String isbn, ArrayList <Page> pages) {
 		super(title, editionDate, genre, editiorial, authors);
 		this.isbn = isbn;
+		this.pages = pages;
 	}
 
 	/**
@@ -89,6 +91,15 @@ public class Book extends Publication implements IVisualizable
     {
         this.timeRead = timeReaded;
     }
+    
+    public ArrayList<Page> getPages() {
+		return pages;
+	}
+
+	public void setPages(ArrayList<Page> pages) {
+		this.pages = pages;
+	}
+
 
     /* (non-Javadoc)
      * @see com.contreras.daniel.amazonviewer.model.IVisualizable#startToSee(java.util.Date)
@@ -111,8 +122,14 @@ public class Book extends Publication implements IVisualizable
     
     public static ArrayList<Book> makeBooksList(){
         ArrayList<Book> books = new ArrayList();
-        books.add(new Book("Ender's Game", new Date(1985,8,21), "Sci-fi", "Planeta",new String[] {"Orson Scott Card"} , "ADSF2342SA342D"));
-        books.add(new Book("A Game of Thrones", new Date(1996,8,6), "Fantasy", "Bantam Spectra",new String[] {"George R. R. Martin"} , "3214AFA43LHUI22"));
+        ArrayList<Page> pages = new ArrayList<>();
+        
+        for (int i = 0; i < 5; i++) {
+			pages.add(new Book.Page(i + 1, "This is the content of page number "+ (i+1)));
+		}
+        
+        books.add(new Book("Ender's Game", new Date(1985,8,21), "Sci-fi", "Planeta",new String[] {"Orson Scott Card"} , "ADSF2342SA342D", pages));
+        books.add(new Book("A Game of Thrones", new Date(1996,8,6), "Fantasy", "Bantam Spectra",new String[] {"George R. R. Martin"} , "3214AFA43LHUI22", pages));
         return books;  
     }
     
@@ -125,6 +142,32 @@ public class Book extends Publication implements IVisualizable
         stopToSee(dateI, new Date());
         System.out.println("\nYou watched:\n" + toString() + 
             "\nFor: " + getTimeReaded());
+    }
+    
+	public static class Page {
+    	int id;
+    	int number;
+    	String content;
+    	
+		public Page(int number, String content) {
+			super();
+			this.number = number;
+			this.content = content;
+		}
+		
+		public int getNumber() {
+			return number;
+		}
+		public void setNumber(int number) {
+			this.number = number;
+		}
+		public String getContent() {
+			return content;
+		}
+		public void setContent(String content) {
+			this.content = content;
+		}
+    	
     }
     
 }
