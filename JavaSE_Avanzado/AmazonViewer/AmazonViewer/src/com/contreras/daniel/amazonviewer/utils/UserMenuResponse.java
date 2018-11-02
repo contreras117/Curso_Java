@@ -36,7 +36,7 @@ public class UserMenuResponse {
             resp = getResponse(min,max);
         }
         
-        sc.close();
+        //sc.close();
         return resp;
 	}
 }

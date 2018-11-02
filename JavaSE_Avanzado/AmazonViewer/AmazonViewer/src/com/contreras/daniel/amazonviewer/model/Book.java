@@ -12,6 +12,8 @@ package com.contreras.daniel.amazonviewer.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.contreras.daniel.amazonviewer.utils.UserMenuResponse;
+
 /**
  * @author dcontrer
  *
@@ -134,13 +136,53 @@ public class Book extends Publication implements IVisualizable
     }
     
     public void view() {
-    	setReaded(true);
     	Date dateI = startToSee(new Date());
-    	for (int i = 0; i < 100000; i++) {
-            System.out.println("Reading..........\n");
-        }
+    	boolean firstPage = false;
+    	
+    	int pageNumber = 0;
+    	do {
+    		System.out.println("........................");
+    		System.out.println("Page - " + pages.get(pageNumber).getNumber());
+    		System.out.println(pages.get(pageNumber).getContent());
+    		System.out.println("........................");
+    		
+    		firstPage = pageNumber == 0 ? true: false;
+    		
+    		if (!firstPage) {
+    			System.out.println("1. Previous page");
+    		}
+
+    		System.out.println("2. Next page");
+    		System.out.println("0. Close Book");
+    		
+    		int response = UserMenuResponse.getResponse(0, 2);
+    		while(firstPage && response == 1) {
+    			System.out.println("Please select a valid option");
+    			response = UserMenuResponse.getResponse(0, 2);
+    		}
+    		
+    		if( response == 0) {
+    			break;
+    		}
+    		else if(response == 1) {
+    			pageNumber--;
+    		}
+    		else if (response == 2) {
+    			pages.get(pageNumber).setRead(true);
+    			pageNumber++;
+			}
+    		
+    	}while (pageNumber < pages.size());
+    	
+    	boolean isBookRead = true;
+    	for (Page page : pages) {
+			if(!page.isRead()) {
+				isBookRead = false;
+			}
+		}
+    	setReaded(isBookRead);
         stopToSee(dateI, new Date());
-        System.out.println("\nYou watched:\n" + toString() + 
+        System.out.println("\nYou have read:\n" + toString() + 
             "\nFor: " + getTimeReaded());
     }
     
@@ -148,11 +190,21 @@ public class Book extends Publication implements IVisualizable
     	int id;
     	int number;
     	String content;
+    	boolean read;
     	
+		public boolean isRead() {
+			return read;
+		}
+
+		public void setRead(boolean read) {
+			this.read = read;
+		}
+
 		public Page(int number, String content) {
 			super();
 			this.number = number;
 			this.content = content;
+			read = false;
 		}
 		
 		public int getNumber() {
