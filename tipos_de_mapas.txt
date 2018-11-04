@@ -1,0 +1,7 @@
+Caracteristicas de los distintos tipos de mapas:
+
+    HashMap: Los elementos no se ordenan. No aceptan claves duplicadas ni valores nulos.
+
+    LinkedHashMap Ordena los elementos conforme se van insertando; provocando que las búsquedas sean más lentas que las demás clases.
+
+    TreeMap El Mapa lo ordena de forma “natural”. Por ejemplo, si la clave son valores enteros (como luego veremos), los ordena de menos a mayor.

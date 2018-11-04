@@ -1,0 +1,17 @@
+Un DAO (Data acces object) es un patron de diseno. Es una clase o interfaz que funciona como
+capa y que permite atacar de manera directa al modelo(objeto).
+
+El DAO contiene los metodos CRUD (create, upddate, read, delete).
+
+EL PATRÓN DATA ACCES OBJECT (DAO)
+El problema que viene a resolver este patrón es netamente el acceso a los datos, que básicamente tiene que ver con la gestión de diversas fuentes de datos y además abstrae la forma de acceder a ellos.
+
+Imagínate que tienes un sistema montado en producción con una base de datos MySQL y de pronto lo debes cambiar a PostgreSQL o a cualquier otro motor de base de datos.
+
+Eso puede ser un verdadero problema.icon
+
+Y precisamente esto lo que soluciona este patrón, tener una aplicación que no esté ligada al acceso a datos, que si por ejemplo la parte de la vista pide encontrar los clientes con compras mensuales mayores $ 200, el DAO se encargue de traer esos datos independientemente si está en un archivo o en una base de datos.
+
+La capa DAO contiene todos los métodos CRUD (create, read, update, delete), por lo general se tiene un DAO para cada tabla en la base de datos, y bueno la implementación se la realiza de la siguiente manera.
+
+Obtenido de: https://www.ecodeup.com/patrones-de-diseno-en-java-mvc-dao-y-dto/
