@@ -28,7 +28,6 @@ import com.contreras.daniel.makefile.File;
  * */
 public class Main
 {
-    
     static ArrayList<Movie> movies = Movie.makeMoviesList();
     static ArrayList<Serie> series = Serie.makeSeriesList();
     static ArrayList<Book> books = Book.makeBooksList();

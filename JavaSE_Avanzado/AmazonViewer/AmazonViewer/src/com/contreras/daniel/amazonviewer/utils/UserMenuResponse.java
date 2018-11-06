@@ -22,7 +22,7 @@ public class UserMenuResponse {
 	public static int getResponse(int min, int max) {
 		Scanner sc = new Scanner(System.in);
         int resp;
-        try
+        try //(sc)
         {
             resp = sc.nextInt();
             if (resp < min || resp > max) {
@@ -35,8 +35,6 @@ public class UserMenuResponse {
             System.out.println("Please enter a number...\n");
             resp = getResponse(min,max);
         }
-        
-        //sc.close();
         return resp;
 	}
 }

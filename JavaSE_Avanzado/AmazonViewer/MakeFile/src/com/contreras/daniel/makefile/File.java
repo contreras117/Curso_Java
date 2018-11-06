@@ -111,8 +111,10 @@ public class File
                 FileOutputStream fos = new FileOutputStream(file);
                 OutputStreamWriter osw = new OutputStreamWriter(fos);
                 BufferedWriter bw = new BufferedWriter(osw);
-                bw.write(getContent());
-                bw.close();
+                
+                try(bw){
+                	bw.write(getContent());
+                }
             }
             catch (IOException e) {
                 e.printStackTrace();

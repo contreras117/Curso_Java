@@ -1,0 +1,6 @@
+En java los errores son objetos del tipo Throwable.
+
+Los errores son de dos tipos:
+    Error -> Provocados por la JVM
+
+Exception -> Errores provocados por el codigo.
