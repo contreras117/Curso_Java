@@ -21,7 +21,7 @@ import java.util.Date;
  * @since 2018
  * 
  */
-public class Movie extends Film implements IVisualizable
+public class Movie extends Film implements IVisualizable, MovieDAO
 {
 	//El atributo id se dejo en cada clase hija por que es una buena practica en caso de que cada id tenga reglas especificas o sea de distinto tipo.
     private int id;
@@ -89,14 +89,7 @@ public void stopToSee(Date sDate, Date eDate)
 }
     
 public static ArrayList<Movie> makeMoviesList(){
-    
-    ArrayList<Movie> movies = new ArrayList();
-    movies.add(new Movie("Gone Girl", "Crime", 149, "David Fincher", (short)2014));
-    movies.add(new Movie("A star is born", "Drama", 136, "Bradley Cooper", (short)2018));
-    movies.add(new Movie("John Wick", "Action",101,"Chad Stahelski",(short)2014));
-    movies.add(new Movie("The Lion King", "Animation", 88, "Roger Allers", (short)1994));
-    movies.add(new Movie("Saving Private Ryan", "Drama", 169, "Steven Spielberg", (short)1998));
-    return movies;  
+    return Movie.read();  
 }
 
 

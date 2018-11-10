@@ -6,14 +6,14 @@ public class DataBase {
 	public static final String DB 		= "amazonviewer";
 	public static final String USER 	= "amazonviewer";
 	public static final String PASSWORD = "amazonviewer";
+
+	public static final String READ_QUERY = "SELECT * FROM ";
 	
 	public static final String MATERIALT 		= "material";
-	public static final String MATERIALT_ID 	= "id";
-	public static final String MATERIALT_NAME 	= "name";
+	public static final int[] MATERIALT_ID 	= {1,2,3,4,5};
 	
-	public static final String USERT 		= "user";
-	public static final String USERT_ID 	= "id";
-	public static final String USERT_NAME 	= "name";
+	public static final String USERT 	= "user";
+	public static final int USERT_ID 	= 1;
 	
 	public static final String VIEWEDT 				= "viewed";
 	public static final String VIEWEDT_IDMATERIAL 	= "id_material";
