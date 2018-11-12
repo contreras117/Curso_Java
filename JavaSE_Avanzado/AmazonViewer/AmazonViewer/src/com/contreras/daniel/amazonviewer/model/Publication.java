@@ -11,7 +11,9 @@ public class Publication {
     private String[] authors;
     
     
-    
+    public Publication() {
+    	
+    }
     
     
 	public Publication(String title, Date editionDate, String genre, String editiorial, String[] authors) {

@@ -12,6 +12,8 @@ package com.contreras.daniel.amazonviewer.model;
 
 import java.util.ArrayList;
 
+import com.contreras.daniel.amazonviewer.dao.ChapterDAO;
+
 /**
  * Extends {@link Movie}
  * @see Film
@@ -21,12 +23,16 @@ import java.util.ArrayList;
  * @since 2018
  *
  */
-public class Chapter extends Movie
+public class Chapter extends Movie implements ChapterDAO
 {
     private int id;
     private byte seasonNumber;
     private Serie serie;
     
+
+    public Chapter() {
+    	
+    }
     
     //Chapter no debe tener genero
     public Chapter(String title, String genre, int duration, String director, short year, byte seasonNumber, Serie serie) {
@@ -35,7 +41,6 @@ public class Chapter extends Movie
 		this.id = (int)(Math.random() * 100);
 		this.serie = serie;
 	}
-
     
     @Override
     public int getId() {
@@ -91,11 +96,14 @@ public class Chapter extends Movie
     }
     
     public static ArrayList<Chapter> makeChaptersList(Serie serie) {
-        ArrayList<Chapter> chapters = new ArrayList();
+        /*ArrayList<Chapter> chapters = new ArrayList();
         for (int i = 1; i <= 5; i++) {
             chapters.add(new Chapter("Chapter" + i, "Genre", 44, "Someone", (short) 2014, (byte) 1, serie));
-        }
-        return chapters;
+        }*/
+        
+        
+    	Chapter chapter = new Chapter();
+        return chapter.read();
     }
     
     /* (non-Javadoc)

@@ -13,11 +13,13 @@ package com.contreras.daniel.amazonviewer.model;
 
 import java.util.ArrayList;
 
+import com.contreras.daniel.amazonviewer.dao.SerieDAO;
+
 /**
  * @author dcontrer
  *
  */
-public class Serie extends Film
+public class Serie extends Film implements SerieDAO
 {
     private int id;
     private String creator;
@@ -26,7 +28,9 @@ public class Serie extends Film
     
     
     
-    
+    public Serie() {
+    	
+    }
     
 	public Serie(String title, String genre, int duration, String creator, byte seasonQuantity) {
 		super(title, genre, duration);
@@ -106,7 +110,7 @@ public class Serie extends Film
     
     public static ArrayList<Serie> makeSeriesList(){
         
-        ArrayList<Serie> series = new ArrayList();
+        /*ArrayList<Serie> series = new ArrayList();
         series.add(new Serie("Lost", "Adventure", 44, "J.J. Abrams", (byte)6));
         series.add(new Serie("Battlestar Galactica", "Action", 44, "Ronald D. Moore", (byte)4));
         series.add(new Serie("Breaking Bad", "Crime",44,"Vince Gilligan",(byte)5));
@@ -114,8 +118,10 @@ public class Serie extends Film
         series.add(new Serie("How i met your mother", "Comedy", 22, "Carter Bays", (byte)9));
         for (Serie serie : series){
             serie.setChapters(Chapter.makeChaptersList(serie));
-        }
-        return series;  
+        }*/
+    	
+    	Serie serie = new Serie();
+        return serie.read();  
     }
 
     @Override

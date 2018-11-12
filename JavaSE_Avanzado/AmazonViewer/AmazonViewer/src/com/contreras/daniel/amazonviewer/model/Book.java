@@ -12,13 +12,14 @@ package com.contreras.daniel.amazonviewer.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.contreras.daniel.amazonviewer.dao.BookDAO;
 import com.contreras.daniel.amazonviewer.utils.UserMenuResponse;
 
 /**
  * @author dcontrer
  *
  */
-public class Book extends Publication implements IVisualizable
+public class Book extends Publication implements IVisualizable, BookDAO
 {
     private int id;
     private String isbn;
@@ -27,6 +28,9 @@ public class Book extends Publication implements IVisualizable
     private ArrayList<Page> pages;
     
     
+    public Book() {
+    	
+    }
 
 	public Book(String title, Date editionDate, String genre, String editiorial, String[] authors, String isbn, ArrayList <Page> pages) {
 		super(title, editionDate, genre, editiorial, authors);
@@ -123,7 +127,7 @@ public class Book extends Publication implements IVisualizable
     }
     
     public static ArrayList<Book> makeBooksList(){
-        ArrayList<Book> books = new ArrayList();
+        /*ArrayList<Book> books = new ArrayList();
         ArrayList<Page> pages = new ArrayList<>();
         
         for (int i = 0; i < 5; i++) {
@@ -131,8 +135,10 @@ public class Book extends Publication implements IVisualizable
 		}
         
         books.add(new Book("Ender's Game", new Date(1985,8,21), "Sci-fi", "Planeta",new String[] {"Orson Scott Card"} , "ADSF2342SA342D", pages));
-        books.add(new Book("A Game of Thrones", new Date(1996,8,6), "Fantasy", "Bantam Spectra",new String[] {"George R. R. Martin"} , "3214AFA43LHUI22", pages));
-        return books;  
+        books.add(new Book("A Game of Thrones", new Date(1996,8,6), "Fantasy", "Bantam Spectra",new String[] {"George R. R. Martin"} , "3214AFA43LHUI22", pages));*/
+        
+        Book book = new Book();
+        return book.read();  
     }
     
     public void view() {

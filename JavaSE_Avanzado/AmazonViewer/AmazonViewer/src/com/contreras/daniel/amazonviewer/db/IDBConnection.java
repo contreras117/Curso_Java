@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import  static com.contreras.daniel.amazonviewer.db.DataBase.*;
 
 public interface IDBConnection {
-	default Connection connectToDB() {
+	 default Connection connectToDB() {
 		Connection connection = null;
 		
 		try {

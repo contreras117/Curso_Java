@@ -29,13 +29,14 @@ public class DataBase {
 	public static final String MOVIET_DURATION 	= "duration";
 	public static final String MOVIET_YEAR 		= "year";
 	
-	public static final String SERIET 			= "serie";
-	public static final String SERIET_ID 		= "id";
-	public static final String SERIET_TITLE 	= "title";
-	public static final String SERIET_GENRE 	= "genre";
-	public static final String SERIET_CREATOR 	= "creator";
-	public static final String SERIET_DURATION 	= "duration";
-	public static final String SERIET_YEAR 		= "year";
+	public static final String SERIET 					= "serie";
+	public static final String SERIET_ID 				= "id";
+	public static final String SERIET_TITLE 			= "title";
+	public static final String SERIET_GENRE 			= "genre";
+	public static final String SERIET_CREATOR 			= "creator";
+	public static final String SERIET_DURATION 			= "duration";
+	public static final String SERIET_YEAR 				= "year";
+	public static final String SERIET_SEASONS_QUANTITY 	= "seasons_quantity";
 	
 	public static final String CHAPTERT					= "chapter";
 	public static final String CHAPTERT_ID 				= "id";
@@ -55,10 +56,11 @@ public class DataBase {
 	public static final String BOOKT_ISBN 			= "isb";
 	
 	public static final String MAGAZINET 				= "magazine";
+	public static final String MAGAZINET_TITLE 			= "magazine";
 	public static final String MAGAZINET_ID 			= "id";
 	public static final String MAGAZINET_EDITION_DATE 	= "edition_date";
 	public static final String MAGAZINET_GENRE 			= "genre";
-	public static final String MAGAZINE_EDITORIAL 		= "editorial";
+	public static final String MAGAZINET_EDITORIAL 		= "editorial";
 	
 	
 	

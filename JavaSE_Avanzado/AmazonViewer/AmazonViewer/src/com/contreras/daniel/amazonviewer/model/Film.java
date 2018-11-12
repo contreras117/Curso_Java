@@ -22,7 +22,11 @@ public abstract class Film {
 	private int duration;
 	private boolean viewed;
 	private int timeViewed;
-
+	
+	public Film() {
+		
+	}
+	
 	public Film(String title, String genre, int duration) {
 		super();
 		this.title = title;

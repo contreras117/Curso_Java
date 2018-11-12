@@ -12,6 +12,8 @@ package com.contreras.daniel.amazonviewer.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.contreras.daniel.amazonviewer.dao.MovieDAO;
+
 /**
  * Extends {@link Film}
  * Implements {@link IVisualizable}
@@ -27,7 +29,10 @@ public class Movie extends Film implements IVisualizable, MovieDAO
     private int id;
     private String director;   
     
-
+    public Movie() {
+    	
+    }
+    
     public Movie(String title, String genre, int duration, String director, short year) {
 		super(title, genre, duration);
 		setYear(year);
@@ -89,7 +94,8 @@ public void stopToSee(Date sDate, Date eDate)
 }
     
 public static ArrayList<Movie> makeMoviesList(){
-    return Movie.read();  
+	Movie movie = new Movie();
+    return movie.read();  
 }
 
 
