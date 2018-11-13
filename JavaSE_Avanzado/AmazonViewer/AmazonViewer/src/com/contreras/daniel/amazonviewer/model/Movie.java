@@ -115,6 +115,7 @@ public void view()
 {
     // TODO Auto-generated method stub
     setViewed(true);
+    setMovieViewed(this);
     Date dateI = startToSee(new Date());
     simulateWatch();
     stopToSee(dateI, new Date());

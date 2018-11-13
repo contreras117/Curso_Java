@@ -4,16 +4,28 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.contreras.daniel.amazonviewer.db.IDBConnection;
 import com.contreras.daniel.amazonviewer.model.Movie;
+
 import static com.contreras.daniel.amazonviewer.db.DataBase.*;
 
 public interface MovieDAO extends IDBConnection {
 	
-	default Movie setMovieViewed(Movie movie) {
-		return movie;
+	default void setMovieViewed(Movie movie) {
+		
+		try(Connection connection = connectToDB()) {
+			Statement statement = connection.createStatement();
+			String query = "INSERT INTO " + VIEWEDT + 
+					" (" + VIEWEDT_IDMATERIAL + "," + VIEWEDT_IDELEMENT + "," + VIEWEDT_IDUSER + ")" +
+					"VALUES(" + MATERIALT_ID[0] + "," + movie.getId() + "," + USERT_ID + ")";
+			statement.executeQuery(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	default ArrayList<Movie> read(){

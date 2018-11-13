@@ -23,7 +23,7 @@ import com.contreras.daniel.amazonviewer.dao.ChapterDAO;
  * @since 2018
  *
  */
-public class Chapter extends Movie implements ChapterDAO
+public class Chapter extends Movie
 {
     private int id;
     private byte seasonNumber;
@@ -96,14 +96,14 @@ public class Chapter extends Movie implements ChapterDAO
     }
     
     public static ArrayList<Chapter> makeChaptersList(Serie serie) {
-        /*ArrayList<Chapter> chapters = new ArrayList();
+        ArrayList<Chapter> chapters = new ArrayList();
         for (int i = 1; i <= 5; i++) {
             chapters.add(new Chapter("Chapter" + i, "Genre", 44, "Someone", (short) 2014, (byte) 1, serie));
-        }*/
+        }
         
         
-    	Chapter chapter = new Chapter();
-        return chapter.read();
+    	//Chapter chapter = new Chapter();
+        return chapters;
     }
     
     /* (non-Javadoc)
