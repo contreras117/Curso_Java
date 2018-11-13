@@ -6,7 +6,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Platzi/Curso_Java/JavaSE_Avanzado/AmazonViewer/AmazonViewer/libs/makefike.jar"/>
-	<classpathentry kind="lib" path="D:/Platzi/Curso_Java/JavaSE_Avanzado/AmazonViewer/AmazonViewer/libs/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="C:/Git/Curso_Java/JavaSE_Avanzado/AmazonViewer/AmazonViewer/libs/makefike.jar"/>
+	<classpathentry kind="lib" path="C:/Git/Curso_Java/JavaSE_Avanzado/AmazonViewer/AmazonViewer/libs/mysql-connector-java-5.1.47.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

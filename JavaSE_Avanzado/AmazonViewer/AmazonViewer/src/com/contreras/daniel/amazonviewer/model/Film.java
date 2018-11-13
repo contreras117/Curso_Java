@@ -36,7 +36,6 @@ public abstract class Film {
 		this.timeViewed = 0;
 	}
 	
-	
     public int getId()
     {
         return id;

@@ -27,19 +27,49 @@ public interface MovieDAO extends IDBConnection {
 				Movie movie = new Movie(
 					rs.getString(MOVIET_TITLE),
 					rs.getString(MOVIET_GENRE),
-					Integer.valueOf(rs.getString(MOVIET_DURATION)),
+					rs.getInt(MOVIET_DURATION),
 					rs.getString(MOVIET_DIRECTOR),
-					Short.valueOf(rs.getString(MOVIET_YEAR))
+					rs.getShort(MOVIET_YEAR)
 				);
+				
+				movie.setId(rs.getInt(MOVIET_ID));
+				movie.setViewed(getMovieViewed(preparedStatement, connection, movie.getId()));
 				movies.add(movie);
+				
+				preparedStatement.close();
 			}
 		} catch (SQLException e) {
 			System.out.println("Error reading getting the movies from DB!");
 		}
-		return movies;
+		finally {
+			return movies;
+		}
+		
 	}
 	
-	private boolean getMovieViewed() {
-		return false;
+	private boolean getMovieViewed(PreparedStatement preparedStatement, Connection connection, int movieID) {
+		boolean viewed = false;
+		
+		String query = READ_QUERY + VIEWEDT + "WHERE " +
+				VIEWEDT_IDMATERIAL + " = ? AND " +
+				VIEWEDT_IDELEMENT + " = ? AND " +
+				VIEWEDT_IDUSER + " = ?";
+		try {
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, MATERIALT_ID[0]);
+			preparedStatement.setInt(2, USERT_ID);
+			preparedStatement.setInt(3, movieID);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			viewed = rs.next();
+			preparedStatement.close();
+						
+		} catch (Exception e) {
+			System.out.println("Error while reading the table VIEWED from db!");
+		}
+		finally {
+			return viewed;
+		}
+		
 	}
 }

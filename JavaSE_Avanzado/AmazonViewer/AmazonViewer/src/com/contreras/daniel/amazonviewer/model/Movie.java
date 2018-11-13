@@ -40,6 +40,14 @@ public class Movie extends Film implements IVisualizable, MovieDAO
 		this.id = (int)(Math.random() * 100);
 	}
 
+    /**
+     * 
+     * @param id
+     */
+    public void setId(int id) {
+		this.id = id;
+	}
+    
 	/**
      * @return the id
      */
