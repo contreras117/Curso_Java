@@ -21,7 +21,7 @@ public interface MovieDAO extends IDBConnection {
 			String query = "INSERT INTO " + VIEWEDT + 
 					" (" + VIEWEDT_IDMATERIAL + "," + VIEWEDT_IDELEMENT + "," + VIEWEDT_IDUSER + ")" +
 					"VALUES(" + MATERIALT_ID[0] + "," + movie.getId() + "," + USERT_ID + ")";
-			statement.executeQuery(query);
+			statement.executeUpdate(query);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -47,9 +47,8 @@ public interface MovieDAO extends IDBConnection {
 				movie.setId(rs.getInt(MOVIET_ID));
 				movie.setViewed(getMovieViewed(preparedStatement, connection, movie.getId()));
 				movies.add(movie);
-				
-				preparedStatement.close();
 			}
+			preparedStatement.close();
 		} catch (SQLException e) {
 			System.out.println("Error reading getting the movies from DB!");
 		}
@@ -62,15 +61,15 @@ public interface MovieDAO extends IDBConnection {
 	private boolean getMovieViewed(PreparedStatement preparedStatement, Connection connection, int movieID) {
 		boolean viewed = false;
 		
-		String query = READ_QUERY + VIEWEDT + "WHERE " +
+		String query = READ_QUERY + VIEWEDT + " WHERE " +
 				VIEWEDT_IDMATERIAL + " = ? AND " +
 				VIEWEDT_IDELEMENT + " = ? AND " +
 				VIEWEDT_IDUSER + " = ?";
 		try {
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, MATERIALT_ID[0]);
-			preparedStatement.setInt(2, USERT_ID);
-			preparedStatement.setInt(3, movieID);
+			preparedStatement.setInt(2, movieID);
+			preparedStatement.setInt(3, USERT_ID);
 			
 			ResultSet rs = preparedStatement.executeQuery();
 			viewed = rs.next();

@@ -29,9 +29,13 @@ import com.contreras.daniel.makefile.File;
 public class Main
 {
     static ArrayList<Movie> movies = Movie.makeMoviesList();
-    static ArrayList<Serie> series = Serie.makeSeriesList();
-    static ArrayList<Book> books = Book.makeBooksList();
-
+    //static ArrayList<Serie> series = Serie.makeSeriesList();
+    //static ArrayList<Book> books = Book.makeBooksList();
+    
+    static ArrayList<Serie> series = new ArrayList();
+    static ArrayList<Book> books = new ArrayList<>();
+    
+    
     public static void main(String[] args)
     {
         // TODO Auto-generated method stub
