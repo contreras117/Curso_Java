@@ -1,9 +1,9 @@
 
 package com.contreras.daniel.amazonviewer;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import com.contreras.daniel.amazonviewer.model.Book;
 import com.contreras.daniel.amazonviewer.model.Chapter;
 import com.contreras.daniel.amazonviewer.model.Magazine;
@@ -38,7 +38,6 @@ public class Main
     
     public static void main(String[] args)
     {
-        // TODO Auto-generated method stub
         showMenu();
     }
 
@@ -79,7 +78,7 @@ public class Main
                     makeReport();
                     break;
                 case 6:
-                    makeReport(new Date());
+                    makeReport(LocalDate.now());
                     break;
                 default:
                     System.out.println("\nSelect an option!\n");
@@ -199,20 +198,20 @@ public class Main
 
     private static void makeReport()
     {
-        File file = prepareReport("Reporte", ":: WHAT HAVE YOU WATCHED ::", "txt");
+        File file = prepareReport("Reporte", ":: WHAT HAVE YOU WATCHED ::", "txt", movies);
         file.makeFile();
         
     }
 
-    private static void makeReport(Date today)
+    private static void makeReport(LocalDate lcdDate)
     {
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-        String stToday = sf.format(today);
-        File file = prepareReport("Reporte_" + stToday, ":: WHAT HAVE YOU WATCHED ::", "txt");
+    	String strToday = lcdDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+    	ArrayList<Movie> arlTodayMovies = Movie.getWatchedDateMovies(strToday);
+        File file = prepareReport("Reporte_" + strToday, ":: WHAT HAVE YOU WATCHED ::", "txt", arlTodayMovies);
         file.makeFile();
     }
     
-    private static File prepareReport(String name, String title, String extention) {
+    private static File prepareReport(String name, String title, String extention, ArrayList<Movie> movies) {
         File file = new File();
         file.setName(name);
         file.setExtention(extention);
@@ -243,7 +242,8 @@ public class Main
         {
             if(book.getRead()) {
                 content += book + "\n";
-            }        }
+            }        
+        }
         file.setContent(content);
         return file;
     }

@@ -97,7 +97,8 @@ CREATE TABLE `viewed` (
   `id` int(11) NOT NULL,
   `id_material` int(11) NOT NULL,
   `id_element` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `id_user` int(11) NOT NULL,
+  `date` datetime NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

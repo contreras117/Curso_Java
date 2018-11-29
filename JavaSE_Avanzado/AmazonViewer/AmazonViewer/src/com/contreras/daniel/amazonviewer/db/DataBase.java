@@ -19,6 +19,7 @@ public class DataBase {
 	public static final String VIEWEDT_IDMATERIAL 	= "id_material";
 	public static final String VIEWEDT_IDELEMENT 	= "id_element";
 	public static final String VIEWEDT_IDUSER 		= "id_user";
+	public static final String VIEWEDT_DATE			= "date";
 	
 	
 	public static final String MOVIET 			= "movie";

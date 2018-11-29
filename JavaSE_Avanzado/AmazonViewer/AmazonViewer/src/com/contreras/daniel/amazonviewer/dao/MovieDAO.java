@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import com.contreras.daniel.amazonviewer.db.IDBConnection;
@@ -15,15 +17,18 @@ import static com.contreras.daniel.amazonviewer.db.DataBase.*;
 public interface MovieDAO extends IDBConnection {
 	
 	default void setMovieViewed(Movie movie) {
+		LocalDateTime date = LocalDateTime.now();
+		String todaysDate = date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 		
 		try(Connection connection = connectToDB()) {
 			Statement statement = connection.createStatement();
 			String query = "INSERT INTO " + VIEWEDT + 
-					" (" + VIEWEDT_IDMATERIAL + "," + VIEWEDT_IDELEMENT + "," + VIEWEDT_IDUSER + ")" +
-					"VALUES(" + MATERIALT_ID[0] + "," + movie.getId() + "," + USERT_ID + ")";
+					" (" + VIEWEDT_IDMATERIAL + "," + VIEWEDT_IDELEMENT + "," + VIEWEDT_IDUSER + "," + VIEWEDT_DATE + ")" +
+					"VALUES(" + MATERIALT_ID[0] + "," + movie.getId() + "," + USERT_ID + ", '" + todaysDate + "' )";
 			statement.executeUpdate(query);
 			
 		} catch (SQLException e) {
+			System.out.println("Error adding movie to table viewed.");
 			e.printStackTrace();
 		}
 	}
@@ -45,7 +50,7 @@ public interface MovieDAO extends IDBConnection {
 				);
 				
 				movie.setId(rs.getInt(MOVIET_ID));
-				movie.setViewed(getMovieViewed(preparedStatement, connection, movie.getId()));
+				movie.setViewed(getMovieViewed(connection, movie.getId()));
 				movies.add(movie);
 			}
 			preparedStatement.close();
@@ -58,7 +63,40 @@ public interface MovieDAO extends IDBConnection {
 		
 	}
 	
-	private boolean getMovieViewed(PreparedStatement preparedStatement, Connection connection, int movieID) {
+	
+	default ArrayList<Movie> readDateWatchedMovies(String strDate){
+		ArrayList<Movie> movies = new ArrayList<>();
+		try (Connection connection = connectToDB()){
+			String query = READ_QUERY + MOVIET;
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while(rs.next()){
+				Movie movie = new Movie(
+					rs.getString(MOVIET_TITLE),
+					rs.getString(MOVIET_GENRE),
+					rs.getInt(MOVIET_DURATION),
+					rs.getString(MOVIET_DIRECTOR),
+					rs.getShort(MOVIET_YEAR)
+				);
+				
+				movie.setId(rs.getInt(MOVIET_ID));
+				movie.setViewed(getMovieViewedToday(connection, movie.getId(),strDate));
+				if(movie.getViewed()) {
+					movies.add(movie);
+				}
+			}
+			preparedStatement.close();
+		} catch (SQLException e) {
+			System.out.println("Error reading getting the movies from DB!");
+		}
+		finally {
+			return movies;
+		}
+		
+	}
+	
+	private boolean getMovieViewed(Connection connection, int movieID) {
 		boolean viewed = false;
 		
 		String query = READ_QUERY + VIEWEDT + " WHERE " +
@@ -66,7 +104,7 @@ public interface MovieDAO extends IDBConnection {
 				VIEWEDT_IDELEMENT + " = ? AND " +
 				VIEWEDT_IDUSER + " = ?";
 		try {
-			preparedStatement = connection.prepareStatement(query);
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, MATERIALT_ID[0]);
 			preparedStatement.setInt(2, movieID);
 			preparedStatement.setInt(3, USERT_ID);
@@ -83,4 +121,33 @@ public interface MovieDAO extends IDBConnection {
 		}
 		
 	}
+	
+	private boolean getMovieViewedToday(Connection connection, int movieID, String date) {
+		boolean viewed = false;
+		
+		String query = READ_QUERY + VIEWEDT + " WHERE " +
+				VIEWEDT_IDMATERIAL + " = ? AND " +
+				VIEWEDT_IDELEMENT + " = ? AND " +
+				VIEWEDT_IDUSER + " = ? AND " +
+				VIEWEDT_DATE + " = ?";
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, MATERIALT_ID[0]);
+			preparedStatement.setInt(2, movieID);
+			preparedStatement.setInt(3, USERT_ID);
+			preparedStatement.setString(4, date);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			viewed = rs.next();
+			preparedStatement.close();
+						
+		} catch (Exception e) {
+			System.out.println("Error while reading the table VIEWED from db!");
+		}
+		finally {
+			return viewed;
+		}
+		
+	}
+	
 }

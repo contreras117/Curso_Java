@@ -106,6 +106,12 @@ public static ArrayList<Movie> makeMoviesList(){
     return movie.read();  
 }
 
+public static ArrayList<Movie> getWatchedDateMovies(String strDate){
+	Movie movie = new Movie();
+    return movie.readDateWatchedMovies(strDate);  
+}
+
+
 
 /**
  * {@inheritDoc}
@@ -113,7 +119,6 @@ public static ArrayList<Movie> makeMoviesList(){
 @Override
 public void view()
 {
-    // TODO Auto-generated method stub
     setViewed(true);
     setMovieViewed(this);
     Date dateI = startToSee(new Date());
