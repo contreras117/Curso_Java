@@ -129,7 +129,7 @@ public interface MovieDAO extends IDBConnection {
 				VIEWEDT_IDMATERIAL + " = ? AND " +
 				VIEWEDT_IDELEMENT + " = ? AND " +
 				VIEWEDT_IDUSER + " = ? AND " +
-				VIEWEDT_DATE + " = ?";
+				"DATEDIFF(" + VIEWEDT_DATE + ",?) = 0";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, MATERIALT_ID[0]);

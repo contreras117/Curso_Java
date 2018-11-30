@@ -2,12 +2,6 @@
 
 :: MOVIES ::
 :: Movie ::
-Title: Coco
-Genre: Animación
-Year: 2017
-Director: Pixart
-Duration: 120
-:: Movie ::
 Title: Titanic
 Genre: Drama
 Year: 1997
