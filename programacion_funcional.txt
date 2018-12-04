@@ -1,0 +1,10 @@
+La progrmacion funcional es un paradigma de progrmacion que se centra en el
+"Que" en lugar del "Como", como lo hace la programacion imperativa.
+
+La programacion funcional, como su nombre lo indica se centra en las funciones.
+
+La prinicipal caracteiristica de la programacion funcional son las funciones
+de orden superior. Una funcion de orden superior es una funcion que recibe Como
+entrada una funcion y genera como salida otra funcion.
+
+Un ejenplo em JS de programacion funcional son los callback y los promises.

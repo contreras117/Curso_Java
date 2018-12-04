@@ -1,0 +1,8 @@
+Las interfaces funcionales tienen un solo metodo, el cual es abstracto.
+SAM (Single Abstract Method)
+
+Tienen una anotacion opcional que podemos colocar arriba de la declaracion:
+    @FunctionalInterface
+Esta anotacion no es oblligatoria pero es una buena practica.
+
+Su manera de implementarse es practicamente igual a las clases anonimas.
