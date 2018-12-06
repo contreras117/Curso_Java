@@ -16,12 +16,24 @@ public class Main {
 		
 		onOneListener.onListenner("Sin Lambdas (Functional interface)");
 		
+		
+		//Usando Labdas con una functional interface
 		OnOneListener onOneListener2 = (String message) -> {
 			System.out.println(message);
 		};
 		onOneListener2.onListenner("Usando Lambdas");
 		
-
+		
+		//Clase anonima
+		OtherListenner otherListenner  = new OtherListenner() {
+			
+			@Override
+			void onListenner(String message) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+		
 	}
 
 }
