@@ -4,6 +4,8 @@ package com.contreras.daniel.amazonviewer;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import com.contreras.daniel.amazonviewer.model.Book;
 import com.contreras.daniel.amazonviewer.model.Chapter;
 import com.contreras.daniel.amazonviewer.model.Magazine;
@@ -92,12 +94,13 @@ public class Main
 		int response = 0;
 		do {
 			System.out.println("\n:: Movies  ::\n");
-			
-			for (Movie movie : movies) {
-			    System.out.println((movies.indexOf(movie)+1) + ". " + movie.getTitle() + " Watched: " + movie.isViewed());
-			}
+
+			//Se usa un atomic integer para obtener el indice de cada pelicula. AL usarse como programacion funcional no puedo cambiar
+			//variables explicitamente dentro de la lambda.
+			AtomicInteger atomicInteger = new AtomicInteger(1);
+			movies.forEach(m -> System.out.println(atomicInteger.getAndIncrement() + ". " + m.getTitle() + "Watched: " + m.isViewed()));
+
 			System.out.println("0. Return to Menu.\n");
-			
 			
 			response = UserMenuResponse.getResponse(0,movies.size());
 			
@@ -207,7 +210,7 @@ public class Main
     {
     	String strToday = lcdDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     	ArrayList<Movie> arlTodayMovies = Movie.getWatchedDateMovies(strToday);
-        File file = prepareReport("Reporte_" + strToday, ":: WHAT HAVE YOU WATCHED ::", "txt", arlTodayMovies);
+        File file = prepareReport("Reporte_" + strToday, ":: WHAT YOU HAVE WATCHED ::", "txt", arlTodayMovies);
         file.makeFile();
     }
     
@@ -216,8 +219,14 @@ public class Main
         file.setName(name);
         file.setExtention(extention);
         file.setTitle(title);
-        String content = file.getTitle() + "\n\n" + ":: MOVIES ::\n";
-        for (Movie movie : movies)
+        
+        StringBuilder content = new StringBuilder();
+        content.append(file.getTitle() + "\n\n" + ":: MOVIES ::\n\n");
+        
+        movies.stream().filter(m -> m.getViewed()).forEach(m -> content.append(m + "\n\n"));
+        
+        
+        /*for (Movie movie : movies)
         {
             if(movie.getViewed()) {
                 content += movie + "\n";
@@ -243,8 +252,8 @@ public class Main
             if(book.getRead()) {
                 content += book + "\n";
             }        
-        }
-        file.setContent(content);
+        }*/
+        file.setContent(content.toString());
         return file;
     }
     

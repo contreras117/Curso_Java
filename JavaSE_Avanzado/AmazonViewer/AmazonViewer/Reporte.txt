@@ -1,18 +1,21 @@
 :: WHAT HAVE YOU WATCHED ::
 
 :: MOVIES ::
+
 :: Movie ::
 Title: Coco
 Genre: Animación
 Year: 2017
 Director: Pixart
 Duration: 120
+
 :: Movie ::
 Title: Titanic
 Genre: Drama
 Year: 1997
 Director: James Cameron
 Duration: 195
+
 :: Movie ::
 Title: Amélie
 Genre: Romance
@@ -20,8 +23,3 @@ Year: 2001
 Director: Jean-Pierre Jeunet
 Duration: 123
 
-
-:: SERIES ::
-
-
-:: BOOKS ::

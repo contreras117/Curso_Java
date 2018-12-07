@@ -1,0 +1,6 @@
+Stream es un metodo agregado a todas las colecciones a partir de Java 8.
+Basicamente lo que hace Stream es habilitar la coleccion para trabajar con lambdas.
+
+Filter es un metodo para que recibe una funcion (lambda) para aplicar un filtro a la coleccion.
+Regresa otro stream con los objetos ya con los objetos filtrados al que pueden aplicarse mas 
+filters en caso de ser necesario.

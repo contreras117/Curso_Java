@@ -8,3 +8,8 @@ de orden superior. Una funcion de orden superior es una funcion que recibe Como
 entrada una funcion y genera como salida otra funcion.
 
 Un ejenplo em JS de programacion funcional son los callback y los promises.
+
+En la programacion funcional no se pueden usar iteraciones. Solo se usa recursividad. (Recuerda Haskell!!!)
+
+En la programacion funcional esta prohibido cambiar el valor de variables explicitamente. Solo puedo invocar
+otras funciones.
