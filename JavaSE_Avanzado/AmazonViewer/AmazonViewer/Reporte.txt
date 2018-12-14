@@ -23,3 +23,26 @@ Year: 2001
 Director: Jean-Pierre Jeunet
 Duration: 123
 
+
+
+:: SERIES ::
+:: Serie ::
+Title: Battlestar Galactica
+:: Chapter ::
+Title: Chapter1
+Genre: Genre
+Year: 2014
+Director: Someone
+Duration: 44
+Season: 1
+
+:: Serie ::
+Title: Battlestar Galactica
+:: Chapter ::
+Title: Chapter3
+Genre: Genre
+Year: 2014
+Director: Someone
+Duration: 44
+Season: 1
+

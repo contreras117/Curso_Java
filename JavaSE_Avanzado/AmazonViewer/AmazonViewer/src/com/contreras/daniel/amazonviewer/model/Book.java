@@ -127,7 +127,7 @@ public class Book extends Publication implements IVisualizable, BookDAO
     }
     
     public static ArrayList<Book> makeBooksList(){
-        /*ArrayList<Book> books = new ArrayList();
+        ArrayList<Book> books = new ArrayList();
         ArrayList<Page> pages = new ArrayList<>();
         
         for (int i = 0; i < 5; i++) {
@@ -135,10 +135,11 @@ public class Book extends Publication implements IVisualizable, BookDAO
 		}
         
         books.add(new Book("Ender's Game", new Date(1985,8,21), "Sci-fi", "Planeta",new String[] {"Orson Scott Card"} , "ADSF2342SA342D", pages));
-        books.add(new Book("A Game of Thrones", new Date(1996,8,6), "Fantasy", "Bantam Spectra",new String[] {"George R. R. Martin"} , "3214AFA43LHUI22", pages));*/
+        books.add(new Book("A Game of Thrones", new Date(1996,8,6), "Fantasy", "Bantam Spectra",new String[] {"George R. R. Martin"} , "3214AFA43LHUI22", pages));
+        return books;
         
-        Book book = new Book();
-        return book.read();  
+        //Book book = new Book();
+        //return book.read();  
     }
     
     public void view() {

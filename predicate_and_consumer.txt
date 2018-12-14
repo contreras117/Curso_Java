@@ -1,0 +1,9 @@
+Un predicate es una manera de guardar una lambda en una variable. Especialmente filtros
+del metodo filter().
+Se declaran con la sintaxis:
+    Predicate<T> predicate = t -> t.booleanmethod;
+
+
+Los consumer se usand para guardar las acciones que se haran dentro de un foreach a modo de variable.
+Se declaran con la sintaxis:
+    Consumer<T> consumer = t -> {code};

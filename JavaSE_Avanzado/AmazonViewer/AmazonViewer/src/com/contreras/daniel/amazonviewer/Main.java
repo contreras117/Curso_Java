@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 import com.contreras.daniel.amazonviewer.model.Book;
 import com.contreras.daniel.amazonviewer.model.Chapter;
@@ -31,11 +33,11 @@ import com.contreras.daniel.makefile.File;
 public class Main
 {
     static ArrayList<Movie> movies = Movie.makeMoviesList();
-    //static ArrayList<Serie> series = Serie.makeSeriesList();
-    //static ArrayList<Book> books = Book.makeBooksList();
+    static ArrayList<Serie> series = Serie.makeSeriesList();
+    static ArrayList<Book> books = Book.makeBooksList();
     
-    static ArrayList<Serie> series = new ArrayList();
-    static ArrayList<Book> books = new ArrayList<>();
+    //static ArrayList<Serie> series = new ArrayList();
+    //static ArrayList<Book> books = new ArrayList<>();
     
     
     public static void main(String[] args)
@@ -223,29 +225,22 @@ public class Main
         StringBuilder content = new StringBuilder();
         content.append(file.getTitle() + "\n\n" + ":: MOVIES ::\n\n");
         
-        movies.stream().filter(m -> m.getViewed()).forEach(m -> content.append(m + "\n\n"));
+        //Ejemplo de predicate usado en un filter en la siguiente linea de codigo.
+        Predicate<Movie> filterMovies = m -> m.getViewed();
+        movies.stream().filter(filterMovies).forEach(m -> content.append(m + "\n\n"));
         
         
-        /*for (Movie movie : movies)
-        {
-            if(movie.getViewed()) {
-                content += movie + "\n";
-            }
-        }
-        content += "\n\n" + ":: SERIES ::\n";
-        for (Serie serie : series)
-        {
-        	boolean printed = false;
-        	for (Chapter chapter : serie.getChapters()) {
-				if (chapter.getViewed()) {
-					if (!printed) {
-						content += serie + "\n";
-						printed = true;
-					}
-					content += chapter + "\n";
-				}
-			}
-        }
+        
+        content.append("\n\n" + ":: SERIES ::\n\n");
+        //Ejemplo de consumer usado mas abajo.
+        Consumer <Serie> consumer = s -> {
+        	ArrayList<Chapter> serieChapters = s.getChapters();
+        	serieChapters.stream().filter(c -> 
+        		c.getViewed()).forEach(c-> content.append(c.toString() + "\n\n"));
+        };
+        series.forEach(consumer);
+        
+        /*
         content += "\n\n" + ":: BOOKS ::\n";
         for (Book book : books)
         {

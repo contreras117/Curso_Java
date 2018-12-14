@@ -11,6 +11,7 @@
 package com.contreras.daniel.amazonviewer.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.contreras.daniel.amazonviewer.dao.ChapterDAO;
 
@@ -86,13 +87,15 @@ public class Chapter extends Movie
     
     @Override
     public String toString() {
-       return ":: Chapter ::"+
-       "\nTitle: " + getTitle() +
-               "\nGenre: " + getGenre() +
-               "\nYear: " + getYear() +
-               "\nDirector: " + getDirector() +
-               "\nDuration: " + getDuration() +
-               "\nSeason: " + seasonNumber;
+    	return ":: Serie ::" +
+    			"\nTitle: " + serie.getTitle() +
+    			"\n:: Chapter ::"+
+    			"\nTitle: " + getTitle() +
+    			"\nGenre: " + getGenre() +
+    			"\nYear: " + getYear() +
+    			"\nDirector: " + getDirector() +
+    			"\nDuration: " + getDuration() +
+    			"\nSeason: " + seasonNumber;
     }
     
     public static ArrayList<Chapter> makeChaptersList(Serie serie) {
@@ -112,8 +115,13 @@ public class Chapter extends Movie
     @Override
     public void view()
     {
-        // TODO Auto-generated method stub
-        super.view();
+       
+    	setViewed(true);
+        Date dateI = startToSee(new Date());
+        simulateWatch();
+        stopToSee(dateI, new Date());
+        System.out.println("\nYou watched:\n" + toString() + 
+            "\nFor: " + getTimeViewed());
         ArrayList<Chapter> chapters = getSerie().getChapters();
         serie.setViewed(true);
         for (Chapter chapter : chapters) {
